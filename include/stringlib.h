@@ -10,5 +10,11 @@
 ==========================================================================*/
 int string_cmp(char *, char *);
 
+/*========================================================================
+======================== function: string_length ============================
+@param_0: The inputted string to be measured
+@return: It returns the length of the inputted string (int)
+==========================================================================*/
+int string_length(char*);
 
 #endif

@@ -11,3 +11,11 @@ int string_cmp(char *str1, char *str2) {
     }
     return 0;     
 }
+
+int string_length(char* str) {
+    int length = 0;
+    while(str[length] != '\0') {
+        length++;
+    }
+    return length;
+}
