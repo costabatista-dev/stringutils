@@ -24,7 +24,7 @@ int string_length(char *);
 ======================== function: string_copy ===========================
 A function to copy a string from a source to a destiny
 @param_0: The destiny string that will be receive content from another one
-@param_0: The string source that will be copied
+@param_1: The string source that will be copied
 ==========================================================================*/
 void string_copy(char *, char *);
 
@@ -32,11 +32,17 @@ void string_copy(char *, char *);
 ===================== function: string_concat ============================
 A function to concatenate two given strings
 @param_0: First string, it'll be putted at the begining of the resultant string
-@param_0: Second string, it'll be putted at the end of the resultant string
+@param_1: Second string, it'll be putted at the end of the resultant string
 @return: A string that's the result of concatenation of second string
 at the end of the first string
 ==========================================================================*/
 char* string_concat(char*, char*);
 
+/*========================================================================
+===================== function: string_init_cut ==========================
+A function to cut a string from the begining until a given index (inclusive)
+@param: A string that will be cutted from the begining
+==========================================================================*/
+void string_init_cut(char *, int);
 
 #endif
