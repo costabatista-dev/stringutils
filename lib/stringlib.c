@@ -69,3 +69,17 @@ void string_init_cut(char *str, int index) {
     string_copy(str, new_str);
     free(new_str);
 }
+
+char* substring_at_be(char *str, int begin, int end) {
+    int length = end - begin + 1;
+    char *sub = (char*) calloc(length, sizeof(char));
+
+    int i = 0;
+    while(i < length) {
+        sub[i] = str[i+begin];
+        i++;
+    }
+    sub[i] = '\0';
+    
+    return sub;
+}

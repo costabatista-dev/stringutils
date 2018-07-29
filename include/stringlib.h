@@ -41,8 +41,18 @@ char* string_concat(char*, char*);
 /*========================================================================
 ===================== function: string_init_cut ==========================
 A function to cut a string from the begining until a given index (inclusive)
-@param: A string that will be cutted from the begining
+@param_0: A string that will be cutted from the begining
 ==========================================================================*/
 void string_init_cut(char *, int);
 
+/*========================================================================
+===================== function: substring_at_be ==========================
+A function to get a substring through a begin index and a end index, given
+a string
+@param_0: A source string
+@param_1: An int that indicates the inital index of the substring (inclusive)
+@param_2: An int that indicates the end index of the substring (inclusive)
+@return: It returns a substring that correspond the given indexes
+==========================================================================*/
+char* substring_at_be(char *, int, int);
 #endif
