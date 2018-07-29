@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #ifndef _STRINGLIB1_
 #define _STRINGLIB1_
 /*========================================================================
@@ -20,11 +21,22 @@ A function to get the size of a string
 int string_length(char *);
 
 /*========================================================================
-======================== function: string_copy ============================
+======================== function: string_copy ===========================
 A function to copy a string from a source to a destiny
 @param_0: The destiny string that will be receive content from another one
-@param_0: The string source that will be copied.
+@param_0: The string source that will be copied
 ==========================================================================*/
 void string_copy(char *, char *);
+
+/*========================================================================
+===================== function: string_concat ============================
+A function to concatenate two given strings
+@param_0: First string, it'll be putted at the begining of the resultant string
+@param_0: Second string, it'll be putted at the end of the resultant string
+@return: A string that's the result of concatenation of second string
+at the end of the first string
+==========================================================================*/
+char* string_concat(char*, char*);
+
 
 #endif
