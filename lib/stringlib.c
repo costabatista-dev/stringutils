@@ -19,3 +19,12 @@ int string_length(char* str) {
     }
     return length;
 }
+
+void string_copy(char *dest, char *src) {
+    int index = 0;
+    
+    while((dest[index] = src[index]) != '\0') {
+        index++;
+    }
+
+}
