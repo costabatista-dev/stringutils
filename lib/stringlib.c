@@ -122,3 +122,15 @@ int string_ncmp(char *str1, char *str2, int n) {
     return 0;  
 
 }
+
+void string_trim(char *src) {
+    int length = string_length(src);
+    char *new_str = (char*) calloc(length, sizeof(char));
+    int i = 0;
+    
+    while(src[i] != '\0' && src[i] == ' ') {
+        i++;
+    }
+
+    string_init_cut(src, i);
+}

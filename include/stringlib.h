@@ -87,4 +87,5 @@ a string
 ==========================================================================*/
 char* substring_at_be(char *str, int begin, int end);
 
+void string_trim(char *src);
 #endif
