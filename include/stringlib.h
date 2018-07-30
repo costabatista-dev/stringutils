@@ -29,6 +29,14 @@ A function to copy a string from a source to a destiny
 void string_copy(char *dest, char *src);
 
 /*========================================================================
+======================== function: string_ncopy ==========================
+A function to copy a string from a source to a destiny
+@param dest: The destiny string that will be receive content from another one
+@param src: The string source that will be copied
+@param n: The number of bytes to be copied
+==========================================================================*/
+void string_ncopy(char *dest, char *src, int n);
+/*========================================================================
 ===================== function: string_concat ============================
 A function to concatenate two given strings
 @param str1: First string, it'll be putted at the begining of the resultant string
@@ -37,7 +45,6 @@ A function to concatenate two given strings
 at the end of the first string
 ==========================================================================*/
 char* string_concat(char *str1, char *str2);
-
 
 /*========================================================================
 ===================== function: string_nconcat ===========================
@@ -49,6 +56,7 @@ A function to concatenate two given strings
 at the end of the first string
 ==========================================================================*/
 char* string_nconcat(char *dest, char *src, int n);
+
 /*========================================================================
 ===================== function: string_init_cut ==========================
 A function to cut a string from the begining until a given index (inclusive)
