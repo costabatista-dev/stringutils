@@ -38,6 +38,16 @@ at the end of the first string
 ==========================================================================*/
 char* string_concat(char *str1, char *str2);
 
+
+/*========================================================================
+===================== function: string_nconcat ===========================
+A function to concatenate two given strings
+@param str1: First string, it'll be putted at the begining of the resultant string
+@param str2: Second string, it'll be putted at the end of the resultant string
+@param n: The number of bytes of src that will be putted at the end of dest
+@return: A string that's the result of concatenation of second string
+at the end of the first string
+==========================================================================*/
 char* string_nconcat(char *dest, char *src, int n);
 /*========================================================================
 ===================== function: string_init_cut ==========================
