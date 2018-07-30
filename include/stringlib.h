@@ -10,7 +10,7 @@ A function to compare if two strings have the same content (are equal)
 @return: It returns 1 if the first string is higher than the second one
 @return: It returns -1 if the second string is lesser than the second one
 ==========================================================================*/
-int string_cmp(char *, char *);
+int string_cmp(char *str1, char *str2);
 
 /*========================================================================
 ======================== function: string_length =========================
@@ -18,7 +18,7 @@ A function to get the size of a string
 @param_0: The inputted string to be measured
 @return: It returns the length of the inputted string (int)
 ==========================================================================*/
-int string_length(char *);
+int string_length(char *str);
 
 /*========================================================================
 ======================== function: string_copy ===========================
@@ -26,7 +26,7 @@ A function to copy a string from a source to a destiny
 @param_0: The destiny string that will be receive content from another one
 @param_1: The string source that will be copied
 ==========================================================================*/
-void string_copy(char *, char *);
+void string_copy(char *dest, char *src);
 
 /*========================================================================
 ===================== function: string_concat ============================
@@ -36,14 +36,14 @@ A function to concatenate two given strings
 @return: A string that's the result of concatenation of second string
 at the end of the first string
 ==========================================================================*/
-char* string_concat(char*, char*);
+char* string_concat(char *str1, char *str2);
 
 /*========================================================================
 ===================== function: string_init_cut ==========================
 A function to cut a string from the begining until a given index (inclusive)
 @param_0: A string that will be cutted from the begining
 ==========================================================================*/
-void string_init_cut(char *, int);
+void string_init_cut(char *str, int index);
 
 /*========================================================================
 ===================== function: substring_at_be ==========================
@@ -54,5 +54,8 @@ a string
 @param_2: An int that indicates the end index of the substring (inclusive)
 @return: It returns a substring that correspond the given indexes
 ==========================================================================*/
-char* substring_at_be(char *, int, int);
+char* substring_at_be(char *str, int begin, int end);
+
+
+
 #endif
