@@ -12,7 +12,7 @@ int string_cmp(char *str1, char *str2) {
     return 0;     
 }
 
-int string_length(char* str) {
+int string_length(char *str) {
     int length = 0;
     while(str[length] != '\0') {
         length++;
@@ -82,4 +82,21 @@ char* substring_at_be(char *str, int begin, int end) {
     sub[i] = '\0';
     
     return sub;
+}
+
+char* string_nconcat(char *dest, char *src, int n) {
+    int length = string_length(dest) + n;
+    char *new_str = (char *) calloc(length, sizeof(char));
+    int i = 0;
+
+    while((new_str[i] = dest[i]) != '\0') {
+        i++;
+    }
+    int j = i;
+    for(i = 0; i < n; i++) {
+        new_str[j+i] = src[i];
+    }
+    new_str[j+i] = '\0';
+    
+    return new_str;
 }

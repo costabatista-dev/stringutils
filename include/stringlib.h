@@ -38,6 +38,7 @@ at the end of the first string
 ==========================================================================*/
 char* string_concat(char *str1, char *str2);
 
+char* string_nconcat(char *dest, char *src, int n);
 /*========================================================================
 ===================== function: string_init_cut ==========================
 A function to cut a string from the begining until a given index (inclusive)
@@ -55,7 +56,5 @@ a string
 @return: It returns a substring that correspond the given indexes
 ==========================================================================*/
 char* substring_at_be(char *str, int begin, int end);
-
-
 
 #endif
