@@ -13,6 +13,17 @@ A function to compare if two strings have the same content (are equal)
 int string_cmp(char *str1, char *str2);
 
 /*========================================================================
+======================== function: string_ncmp ===========================
+A function to compare if two strings have the same content (are equal)
+@param str1: The first string to be compared  
+@param str2: The second string to be compared
+@param n: The number of bytes that will be compared
+@return: It returns 0 if the two given string are equal
+@return: It returns 1 if the first string is higher than the second one
+@return: It returns -1 if the second string is lesser than the second one
+==========================================================================*/
+int string_ncmp(char *str1, char *str2, int n);
+/*========================================================================
 ======================== function: string_length =========================
 A function to get the size of a string
 @param str: The inputted string to be measured
