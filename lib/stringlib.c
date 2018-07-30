@@ -132,9 +132,14 @@ void string_trim(char *src) {
     char *new_str = (char*) calloc(length, sizeof(char));
     int i = 0;
     
-    while(src[i] != '\0' && src[i] == ' ') {
+    while(src[i] != '\0' && (src[i] == ' ' || src[i] == '\t' || src[i] == '\n')) {
         i++;
     }
-
-    string_init_cut(src, i);
+    string_init_cut(src, (i-1));
+    length = string_length(src);
+    i = length -1;
+    while((src[i] == ' ' || src[i] == '\t' || src[i] == '\n')) {
+        i--;
+    }
+    src[i + 1] = '\0';
 }

@@ -96,5 +96,10 @@ a string
 ==========================================================================*/
 char* substring_at_be(char *str, int begin, int end);
 
+/*========================================================================
+===================== function: string_trim ==============================
+A function to remove whitespaces from beginind and end from a string
+@param: a source string
+==========================================================================*/
 void string_trim(char *src);
 #endif
