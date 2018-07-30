@@ -70,6 +70,10 @@ void string_init_cut(char *str, int index) {
     free(new_str);
 }
 
+void string_end_cut(char *src, int index) {
+    src[index] = '\0';
+}
+
 char* substring_at_be(char *str, int begin, int end) {
     int length = end - begin + 1;
     char *sub = (char*) calloc(length, sizeof(char));

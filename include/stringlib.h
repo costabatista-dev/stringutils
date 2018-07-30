@@ -72,9 +72,18 @@ char* string_nconcat(char *dest, char *src, int n);
 ===================== function: string_init_cut ==========================
 A function to cut a string from the begining until a given index (inclusive)
 @param str: A string that will be cutted from the begining
-@para index: a index to cut the inputted string
+@param index: a index to cut the inputted string
 ==========================================================================*/
 void string_init_cut(char *str, int index);
+
+/*========================================================================
+===================== function: string_init_cut ==========================
+A function to cut a string from a given index (inclusive) until it ends
+@param str: A string that will be cutted from the begining
+@param index: a index to cut the inputted string
+==========================================================================*/
+void string_end_cut(char *src, int index);
+
 
 /*========================================================================
 ===================== function: substring_at_be ==========================
