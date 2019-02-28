@@ -134,5 +134,5 @@ A function to verify whether a string begins with a prefix.
 @param: a string to be verified
 @return: it returns 1 if it's true else 0
 ==========================================================================*/
-int str_begins_with(char* prefix, char *str);
+int string_begins_with(char* prefix, char *str);
 #endif

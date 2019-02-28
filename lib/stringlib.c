@@ -163,7 +163,7 @@ char* append_char_to_string(char character, char *string) {
 }
 
 
-int str_begins_with(char* prefix, char* str) {
+int string_begins_with(char* prefix, char* str) {
     int length = string_length(prefix);
     int count;
 
