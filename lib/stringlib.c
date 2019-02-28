@@ -1,6 +1,7 @@
 #include "../include/stringlib.h"
 
 
+
 int string_cmp(char *str1, char *str2) {
     int i = 0;
     while(str1[i] != '\0') {
@@ -12,6 +13,7 @@ int string_cmp(char *str1, char *str2) {
     return 0;     
 }
 
+
 int string_length(char *str) {
     int length = 0;
     while(str[length] != '\0') {
@@ -19,6 +21,7 @@ int string_length(char *str) {
     }
     return length;
 }
+
 
 void string_copy(char *dest, char *src) {
     int index = 0;
@@ -30,6 +33,7 @@ void string_copy(char *dest, char *src) {
     dest[index] = '\0';
 
 }
+
 
 char* string_concat(char *str1, char *str2) {
     int length1 = string_length(str1);
@@ -54,6 +58,7 @@ char* string_concat(char *str1, char *str2) {
     return concat;
 }
 
+
 void string_init_cut(char *str, int index) {
     int new_begin_index = index +1;
     int new_length = string_length(str) - new_begin_index;
@@ -70,9 +75,11 @@ void string_init_cut(char *str, int index) {
     free(new_str);
 }
 
+
 void string_end_cut(char *src, int index) {
     src[index] = '\0';
 }
+
 
 char* substring_at_be(char *str, int begin, int end) {
     int length = end - begin + 1;
@@ -87,6 +94,7 @@ char* substring_at_be(char *str, int begin, int end) {
     
     return sub;
 }
+
 
 char* string_nconcat(char *dest, char *src, int n) {
     int length = string_length(dest) + n;
@@ -105,6 +113,7 @@ char* string_nconcat(char *dest, char *src, int n) {
     return new_str;
 }
 
+
 void string_ncopy(char *dest, char *src, int n) {
     int i;
 
@@ -114,6 +123,7 @@ void string_ncopy(char *dest, char *src, int n) {
 
     dest[n] = '\0';    
 }
+
 
 int string_ncmp(char *str1, char *str2, int n) {
      int i = 0;
@@ -126,6 +136,7 @@ int string_ncmp(char *str1, char *str2, int n) {
     return 0;  
 
 }
+
 
 void string_trim(char *src) {
     int length = string_length(src);
@@ -142,4 +153,11 @@ void string_trim(char *src) {
         i--;
     }
     src[i + 1] = '\0';
+}
+
+
+char* append_char_to_string(char character, char *string) {
+    char *new_str = (char*) calloc(1, sizeof(char));
+    new_str[0] = character;
+    return string_concat(string, new_str);
 }

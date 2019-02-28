@@ -1,6 +1,8 @@
 #include<stdlib.h>
 #ifndef _STRINGLIB1_
 #define _STRINGLIB1_
+
+
 /*========================================================================
 ======================== function: string_cmp ============================
 A function to compare if two strings have the same content (are equal)
@@ -11,6 +13,7 @@ A function to compare if two strings have the same content (are equal)
 @return: It returns -1 if the second string is lesser than the second one
 ==========================================================================*/
 int string_cmp(char *str1, char *str2);
+
 
 /*========================================================================
 ======================== function: string_ncmp ===========================
@@ -23,6 +26,8 @@ A function to compare if two strings have the same content (are equal)
 @return: It returns -1 if the second string is lesser than the second one
 ==========================================================================*/
 int string_ncmp(char *str1, char *str2, int n);
+
+
 /*========================================================================
 ======================== function: string_length =========================
 A function to get the size of a string
@@ -30,6 +35,7 @@ A function to get the size of a string
 @return: It returns the length of the inputted string (int)
 ==========================================================================*/
 int string_length(char *str);
+
 
 /*========================================================================
 ======================== function: string_copy ===========================
@@ -39,6 +45,7 @@ A function to copy a string from a source to a destiny
 ==========================================================================*/
 void string_copy(char *dest, char *src);
 
+
 /*========================================================================
 ======================== function: string_ncopy ==========================
 A function to copy a string from a source to a destiny
@@ -47,6 +54,8 @@ A function to copy a string from a source to a destiny
 @param n: The number of bytes to be copied
 ==========================================================================*/
 void string_ncopy(char *dest, char *src, int n);
+
+
 /*========================================================================
 ===================== function: string_concat ============================
 A function to concatenate two given strings
@@ -56,6 +65,7 @@ A function to concatenate two given strings
 at the end of the first string
 ==========================================================================*/
 char* string_concat(char *str1, char *str2);
+
 
 /*========================================================================
 ===================== function: string_nconcat ===========================
@@ -68,6 +78,7 @@ at the end of the first string
 ==========================================================================*/
 char* string_nconcat(char *dest, char *src, int n);
 
+
 /*========================================================================
 ===================== function: string_init_cut ==========================
 A function to cut a string from the begining until a given index (inclusive)
@@ -75,6 +86,7 @@ A function to cut a string from the begining until a given index (inclusive)
 @param index: a index to cut the inputted string
 ==========================================================================*/
 void string_init_cut(char *str, int index);
+
 
 /*========================================================================
 ===================== function: string_init_cut ==========================
@@ -96,10 +108,21 @@ a string
 ==========================================================================*/
 char* substring_at_be(char *str, int begin, int end);
 
+
 /*========================================================================
 ===================== function: string_trim ==============================
 A function to remove whitespaces from beginind and end from a string
 @param: a source string
 ==========================================================================*/
 void string_trim(char *src);
+
+
+/*========================================================================
+===================== function: append_to_string =========================
+A function to append a char to a given string
+@param: a char to append at the end of a string
+@param: a string to receive a char at the end of it
+@return: It returns a new string which has the char parameter as the last character
+==========================================================================*/
+char* append_char_to_string(char character, char *string);
 #endif
