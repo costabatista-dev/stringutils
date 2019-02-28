@@ -161,3 +161,14 @@ char* append_char_to_string(char character, char *string) {
     new_str[0] = character;
     return string_concat(string, new_str);
 }
+
+
+int str_begins_with(char* prefix, char* str) {
+    int length = string_length(prefix);
+    int count;
+
+    for(count = 0; count < length; count++) {
+        if(prefix[count] != str[count]) return 0;
+    }
+    return 1;
+}
