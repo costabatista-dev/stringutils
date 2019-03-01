@@ -89,7 +89,7 @@ void string_init_cut(char *str, int index);
 
 
 /*========================================================================
-===================== function: string_init_cut ==========================
+===================== function: string_end_cut ==========================
 A function to cut a string from a given index (inclusive) until it ends
 @param str: A string that will be cutted from the begining
 @param index: a index to cut the inputted string
