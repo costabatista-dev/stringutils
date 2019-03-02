@@ -164,3 +164,24 @@ int string_begins_with(char* prefix, char* str) {
     }
     return 1;
 }
+
+
+int string_contains(char* str, char* sequence) {
+	int size = string_length(str);
+	int seq_size = string_length(sequence);
+	
+	if(seq_size > size) return 0;
+
+	int i,j;
+	for(i = 0; i < size; i++) {
+		j = 0;
+		if(str[i] == sequence[j]) {
+			while(j < seq_size &&  str[i] == sequence[j]) {
+				j++;
+				i++;
+			}
+			if(j == seq_size) return 1;
+		}
+	}
+	return 0;
+}
