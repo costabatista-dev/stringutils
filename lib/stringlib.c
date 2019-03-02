@@ -59,25 +59,17 @@ char* string_concat(char *str1, char *str2) {
 }
 
 
-void string_init_cut(char *str, int index) {
-    int new_begin_index = index +1;
-    int new_length = string_length(str) - new_begin_index;
-
-    char *new_str = (char *) calloc(new_length, sizeof(char));
-    int i = 0;
-    while((new_str[i] = str[new_begin_index]) != '\0') {
-        i++;
-        new_begin_index++;
-    }
-    new_str[i] = '\0';
-
-    string_copy(str, new_str);
-    free(new_str);
+char* string_init_cut(char *str, int index) {
+    int length = string_length(str);
+    char* new_str = substring_at_be(str, index, length - 1);
+    return new_str;
 }
 
 
-void string_end_cut(char *src, int index) {
-    src[index] = '\0';
+char* string_end_cut(char *src, int index) {
+     char* new_str = substring_at_be(src, 0, index);
+     new_str[index] = '\0';
+     return new_str;
 }
 
 
