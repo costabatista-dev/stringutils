@@ -137,4 +137,15 @@ A function to verify whether a string begins with a prefix.
 @return: it returns 1 if it's true else 0
 ==========================================================================*/
 int string_begins_with(char* prefix, char *str);
+
+
+/*========================================================================
+===================== function: string_contains ==========================
+A function to determine if a string contains a sequence of char.
+@param: a string to be verified.
+@param: a sequence to be searched in the given string
+@return: it returns 1 if the string be found, else returns 0
+==========================================================================
+*/
+int string_contains(char* str, char* sequence);
 #endif
