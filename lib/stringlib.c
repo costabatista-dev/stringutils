@@ -186,6 +186,7 @@ int string_contains(char* str, char* sequence) {
 	return 0;
 }
 
+
 char* string_cut_first_occurrence(char* str, char* sequence) {
     if(string_contains(str, sequence) < 0) return NULL;
     int i,j;
@@ -218,4 +219,29 @@ char* string_cut_first_occurrence(char* str, char* sequence) {
     free(first);
     free(second);
     return result; 
+}
+
+
+char* string_first_char_occur(char* str, char* sequence) {
+    int size = string_length(str);
+	int seq_size = string_length(sequence);
+	
+	if(seq_size > size) return NULL;
+
+	int i,j, begin;
+    char* p; 
+	for(i = 0; i < size; i++) {
+		j = 0;
+        begin = i;
+		if(str[i] == sequence[j]) {
+            while(j < seq_size &&  str[i] == sequence[j]) {
+				j++;
+				i++;
+			}
+            			if(j == seq_size) {
+                p = &str[begin];
+            }
+		}
+	}
+	return p;
 }

@@ -159,4 +159,14 @@ A function to cut the first occurrence of a sequence in a given string.
 ==========================================================================
 */
 char* string_cut_first_occurrence(char* str, char* sequence);
+
+
+/*========================================================================
+===================== function: string_first_char_occur ==================
+@param: a string to be verified.
+@param: a sequence to be searched in the given string
+@return: it returns a pointer to the first appearence of a given sequence.
+==========================================================================
+*/
+char* string_first_char_occur(char* str, char* sequence);
 #endif
