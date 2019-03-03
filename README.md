@@ -7,7 +7,7 @@ A customized String library written in C Programming Language.
 ## Built With
 ## Versioning
 ## Author
-- <a href="https://github.com/costabatista" target="_blank">Paulo Batista</a>
+- [Paulo Batista](https://github.com/costabatista)
 ## License
-This project is licensed under the MIT License - see the <a href="https://github.com/costabatista/stringutils/blob/master/LICENSE" target="_blank">README.md</a> file for details
+This project is licensed under the MIT License - see the (https://github.com/costabatista/stringutils/blob/master/LICENSE)[README.md] file for details
 ## Acknowledgments
