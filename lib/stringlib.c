@@ -132,7 +132,6 @@ int string_ncmp(char *str1, char *str2, int n) {
 
 void string_trim(char *src) {
     int length = string_length(src);
-    char *new_str = (char*) calloc(length, sizeof(char));
     int i = 0;
     
     while(src[i] != '\0' && (src[i] == ' ' || src[i] == '\t' || src[i] == '\n')) {
@@ -244,6 +243,7 @@ char* string_first_sequence_occur(char* str, char* sequence) {
             }
 		}
 	}
+    return NULL;
 }
 
 
