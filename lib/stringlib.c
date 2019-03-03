@@ -222,7 +222,7 @@ char* string_cut_first_occurrence(char* str, char* sequence) {
 }
 
 
-char* string_first_char_occur(char* str, char* sequence) {
+char* string_first_sequence_occur(char* str, char* sequence) {
     int size = string_length(str);
 	int seq_size = string_length(sequence);
 	

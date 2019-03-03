@@ -168,5 +168,5 @@ char* string_cut_first_occurrence(char* str, char* sequence);
 @return: it returns a pointer to the first appearence of a given sequence.
 ==========================================================================
 */
-char* string_first_char_occur(char* str, char* sequence);
+char* string_first_sequence_occur(char* str, char* sequence);
 #endif
