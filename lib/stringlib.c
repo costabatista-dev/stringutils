@@ -185,3 +185,37 @@ int string_contains(char* str, char* sequence) {
 	}
 	return 0;
 }
+
+char* string_cut_first_occurrence(char* str, char* sequence) {
+    if(string_contains(str, sequence) < 0) return NULL;
+    int i,j;
+    int size = string_length(str);
+	int seq_size = string_length(sequence);
+    int begin_index, end_index;
+    for(i = 0; i < size; i++) {
+		j = 0;
+		if(str[i] == sequence[j]) {
+            begin_index = i;
+			while(j < seq_size &&  str[i] == sequence[j]) {
+				j++;
+				i++;
+			}
+            end_index = i;
+            if(j == seq_size - 1) {
+                break;
+            }
+			
+		}
+	}
+    char* first = (char*) calloc(begin_index+1, sizeof(char));
+    string_ncopy(first, str, begin_index);
+
+    char* second = (char*) calloc(string_length(str) - end_index, sizeof(char));
+    second = substring_at_be(str, end_index, string_length(str) - 1);
+
+    char* result = (char*) calloc(string_length(first) + string_length(second), sizeof(char));
+    result = string_concat(first, second);
+    free(first);
+    free(second);
+    return result; 
+}
