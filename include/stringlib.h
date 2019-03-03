@@ -149,6 +149,18 @@ A function to determine if a string contains a sequence of char.
 */
 int string_contains(char* str, char* sequence);
 
+
+/*========================================================================
+===================== function: string_cut_first_occurrence ==============
+A function to cut the first occurrence of a sequence in a given string.
+@param: a string to be cutted.
+@param: a sequence to be removed from a given string.
+@return: it returns a string withou the first occurrence of the given sequence of char
+==========================================================================
+*/
+char* string_cut_first_occurrence(char* str, char* sequence);
+
+
 /*========================================================================
 ===================== function: string_first_char_occur ==================
 @param: a string to be verified.
