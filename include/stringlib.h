@@ -148,4 +148,13 @@ A function to determine if a string contains a sequence of char.
 ==========================================================================
 */
 int string_contains(char* str, char* sequence);
+
+/*========================================================================
+===================== function: string_first_char_occur ==================
+@param: a string to be verified.
+@param: a sequence to be searched in the given string
+@return: it returns a pointer to the first appearence of a given sequence.
+==========================================================================
+*/
+char* string_first_char_occur(char* str, char* sequence);
 #endif
