@@ -238,7 +238,33 @@ char* string_first_sequence_occur(char* str, char* sequence) {
 				j++;
 				i++;
 			}
-            			if(j == seq_size) {
+            if(j == seq_size) {
+                p = &str[begin];
+                return p;
+            }
+		}
+	}
+}
+
+
+char* string_last_sequence_occur(char* str, char* sequence) {
+    if(string_contains(str, sequence) < 1) return NULL;
+    int size = string_length(str);
+	int seq_size = string_length(sequence);
+	
+	if(seq_size > size) return NULL;
+
+	int i,j, begin;
+    char* p; 
+	for(i = 0; i < size; i++) {
+		j = 0;
+        begin = i;
+		if(str[i] == sequence[j]) {
+            while(j < seq_size &&  str[i] == sequence[j]) {
+				j++;
+				i++;
+			}
+            if(j == seq_size) {
                 p = &str[begin];
             }
 		}
