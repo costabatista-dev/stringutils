@@ -7,5 +7,8 @@ compile: header
 header:
 	sudo cp -v include/stringutil.h /usr/include/
 
+uninstall:
+	sudo rm -v /usr/include/stringutil.h
+	sudo rm -v /usr/lib/libstringutil.so
 clean:
 	rm -v *.o *.so
