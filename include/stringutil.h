@@ -1,6 +1,6 @@
 #include<stdlib.h>
-#ifndef _STRINGLIB1_
-#define _STRINGLIB1_
+#ifndef _STRINGUTIL1_
+#define _STRINGUTIL1_
 
 
 /*========================================================================

@@ -1,5 +1,4 @@
-#include "../include/stringlib.h"
-
+#include<stringutil.h>
 
 
 int string_cmp(char *str1, char *str2) {
