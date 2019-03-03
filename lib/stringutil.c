@@ -190,7 +190,7 @@ char* string_cut_first_occurrence(char* str, char* sequence) {
     int i,j;
     int size = string_length(str);
 	int seq_size = string_length(sequence);
-    int begin_index, end_index;
+    int begin_index = 0, end_index = 0;
     for(i = 0; i < size; i++) {
 		j = 0;
 		if(str[i] == sequence[j]) {
@@ -254,7 +254,7 @@ char* string_last_sequence_occur(char* str, char* sequence) {
 	if(seq_size > size) return NULL;
 
 	int i,j, begin;
-    char* p; 
+    char* p = NULL; 
 	for(i = 0; i < size; i++) {
 		j = 0;
         begin = i;
