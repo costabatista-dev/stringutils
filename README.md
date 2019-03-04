@@ -5,6 +5,11 @@ A customized String library written in C Programming Language.
 ## Installing
 ## Running the tests
 ## Built With
+
+- This software was compiled by GCC (Version 7.3.0).
+- The platform used in development was **Ubuntu 18.04**.
+
+**\*GCC - Gnu Compiler Collection**
 ## Versioning
 ## Author
 - [Paulo Batista](https://github.com/costabatista)
