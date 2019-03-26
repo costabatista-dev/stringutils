@@ -1,4 +1,4 @@
-#include<stringutil.h>
+#include "../include/stringutil.h"
 
 
 int string_cmp(char *str1, char *str2) {
@@ -270,3 +270,22 @@ char* string_last_sequence_occur(char* str, char* sequence) {
 	}
 	return p;
 }
+
+
+char* get_file_content(char* file_path) {
+    FILE* file = fopen(file_path, "r");
+    char c;
+    int size = 1;
+    char* file_content = (char*) calloc(size, sizeof(char));
+    
+    while((c = fgetc(file)) != EOF) {
+        file_content[size-1] = c;
+        size++;
+        file_content = realloc(file_content, size);
+    }
+    
+    file_content[size-1] = EOF;
+
+    return file_content;
+}
+

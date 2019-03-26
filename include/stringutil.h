@@ -1,4 +1,5 @@
 #include<stdlib.h>
+#include<stdio.h>
 #ifndef _STRINGUTIL1_
 #define _STRINGUTIL1_
 
@@ -179,4 +180,8 @@ char* string_first_sequence_occur(char* str, char* sequence);
 ==========================================================================
 */
 char* string_last_sequence_occur(char* str, char* sequence);
+
+char* get_file_content(char* file_path);
+char** get_file_divided_by_lines(char* file_path);
+
 #endif
