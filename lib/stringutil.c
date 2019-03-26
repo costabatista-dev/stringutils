@@ -289,3 +289,16 @@ char* get_file_content(char* file_path) {
     return file_content;
 }
 
+
+char** string_split_index(char* str, int index) {
+    int length = string_length(str);
+    char* begin = (char*) calloc(index, sizeof(char));
+    string_ncopy(begin, str, index);
+    char* end = string_init_cut(str, index);
+
+    char** split = (char**) calloc(2, sizeof(char*));
+    split[0] = begin;
+    split[1] = end;
+
+    return split;
+}

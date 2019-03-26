@@ -181,7 +181,12 @@ char* string_first_sequence_occur(char* str, char* sequence);
 */
 char* string_last_sequence_occur(char* str, char* sequence);
 
+
 char* get_file_content(char* file_path);
+
+char** string_split_index(char* str, int index); //finished.
+char** string_split_sequence(char* str, char* sequence);
+char** string_split_char(char* str, char c);
 char** get_file_divided_by_lines(char* file_path);
 
 #endif
