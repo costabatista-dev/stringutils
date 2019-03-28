@@ -164,7 +164,7 @@ int string_begins_with(char* prefix, char* str) {
 }
 
 
-int string_contains(char* str, char* sequence) {
+int string_contains_str(char* str, char* sequence) {
 	int size = string_length(str);
 	int seq_size = string_length(sequence);
 	
@@ -184,9 +184,14 @@ int string_contains(char* str, char* sequence) {
 	return 0;
 }
 
+int string_contains_char(char* str, char c) {
+    char* character = (char*) calloc(1, sizeof(char));
+
+    return string_contains_str(str, character);
+}
 
 char* string_cut_first_occurrence(char* str, char* sequence) {
-    if(string_contains(str, sequence) < 0) return NULL;
+    if(string_contains_str(str, sequence) < 0) return NULL;
     int i,j;
     int size = string_length(str);
 	int seq_size = string_length(sequence);
@@ -247,7 +252,7 @@ char* string_first_sequence_occur(char* str, char* sequence) {
 
 
 char* string_last_sequence_occur(char* str, char* sequence) {
-    if(string_contains(str, sequence) < 1) return NULL;
+    if(string_contains_str(str, sequence) < 1) return NULL;
     int size = string_length(str);
 	int seq_size = string_length(sequence);
 	
@@ -294,11 +299,60 @@ char** string_split_index(char* str, int index) {
     int length = string_length(str);
     char* begin = (char*) calloc(index, sizeof(char));
     string_ncopy(begin, str, index);
-    char* end = string_init_cut(str, index);
+    char* end = string_init_cut(str, index + 1);
 
     char** split = (char**) calloc(2, sizeof(char*));
     split[0] = begin;
     split[1] = end;
 
+    return split;
+}
+
+
+int* string_char_occurrences(char* str, char c) {
+    int* occur = (int*) calloc(1, sizeof(int));
+    int length = string_length(str), i, j = 0;
+
+    for(i = 0; i <  length; i++) {
+        if(str[i] == c) {
+            if(j >  0) occur = (int*) realloc(occur, j + 1);
+            occur[j] = i;
+            j++;     
+        }
+    }
+
+    return occur;
+}
+
+int string_number_occurrences(char* str, char c) {
+    int length = string_length(str);
+    int i, count = 0;
+
+    for(i = 0; i < length; i++) {
+        if(str[i] == c) count++; 
+    }
+
+    return count;
+}
+
+char** string_split_char(char* str, char c) {
+    int i, j = 0, begin = 0, end;
+    int size_split = string_number_occurrences(str,c) + 1;
+    char** split = (char**) calloc(size_split, sizeof(char*));
+    char* sub;
+    for(i = 0; i < size_split; i++) {
+        
+        while(str[j] != c) {
+            j++;
+        }
+    
+        end = j;
+        if(begin == 0) sub = substring_at_be(str, begin, end - 1);
+        else sub = substring_at_be(str, begin + 1, end - 1);
+        begin = end;
+        split[i] = sub;
+        j++;
+    }
+    
     return split;
 }

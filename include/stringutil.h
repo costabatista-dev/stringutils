@@ -141,15 +141,16 @@ int string_begins_with(char* prefix, char *str);
 
 
 /*========================================================================
-===================== function: string_contains ==========================
+===================== function: string_contains_str ======================
 A function to determine if a string contains a sequence of char.
 @param: a string to be verified.
 @param: a sequence to be searched in the given string
 @return: it returns 1 if the string be found, else returns 0
 ==========================================================================
 */
-int string_contains(char* str, char* sequence);
+int string_contains_str(char* str, char* sequence);
 
+int string_contains_char(char* str, char c);
 
 /*========================================================================
 ===================== function: string_cut_first_occurrence ==============
@@ -181,6 +182,8 @@ char* string_first_sequence_occur(char* str, char* sequence);
 */
 char* string_last_sequence_occur(char* str, char* sequence);
 
+int* string_char_occurrences(char* str, char c);
+int string_number_occurrences(char* str, char c);
 
 char* get_file_content(char* file_path);
 
