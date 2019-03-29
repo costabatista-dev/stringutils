@@ -150,7 +150,16 @@ A function to determine if a string contains a sequence of char.
 */
 int string_contains_str(char* str, char* sequence);
 
+/*========================================================================
+===================== function: string_contains_char =====================
+A function to determine if a string contains a char.
+@param: a string to be verified.
+@param: a char to be found in the given string
+@return: it returns 1 if the given char was found, else returns 0.
+==========================================================================
+*/
 int string_contains_char(char* str, char c);
+
 
 /*========================================================================
 ===================== function: string_cut_first_occurrence ==============
@@ -165,9 +174,10 @@ char* string_cut_first_occurrence(char* str, char* sequence);
 
 /*========================================================================
 ===================== function: string_first_char_occur ==================
+A function to get a pointer to the first appearance of a given sequence of char
 @param: a string to be verified.
 @param: a sequence to be searched in the given string
-@return: it returns a pointer to the first appearence of a given sequence.
+@return: it returns a pointer to the first appearance of a given sequence.
 ==========================================================================
 */
 char* string_first_sequence_occur(char* str, char* sequence);
@@ -175,21 +185,110 @@ char* string_first_sequence_occur(char* str, char* sequence);
 
 /*========================================================================
 ===================== function: string_last_sequence_occur ===============
+A function to get a pointer to the first appearance of a given sequence of char
 @param: a string to be verified.
 @param: a sequence to be searched in the given string
-@return: it returns a pointer to the last appearence of a given sequence.
+@return: it returns a pointer to the last appearance of a given sequence.
 ==========================================================================
 */
 char* string_last_sequence_occur(char* str, char* sequence);
 
-int* string_char_occurrences(char* str, char c); // finished.
+
+/*========================================================================
+===================== function: string_char_occurrences ==================
+A function to get an array that contains each position that a given char occurs
+in a given string.
+@param: a string to be verified.
+@param: a char to be found in the given string.
+@return: it returns an array that contains all positions that a char occurs in a
+string. Otherwise it returns NULL.
+==========================================================================
+*/
+int* string_char_occurrences(char* str, char c);
+
+
+/*========================================================================
+===================== function: string_number_occurrences ================
+A function to get the number of times a char occurs in a given string.
+@param: a string to be verified.
+@param: a char to be found in the given string.
+@return: the number of times a char occurs in the given string.
+==========================================================================
+*/
 int string_number_occurrences(char* str, char c); // finished.
 
+
+/*========================================================================
+===================== function: get_file_content =========================
+A function to get the content of a file.
+@param: a string that represents the path of a file.
+@return: it returns the content of file as a string. If the file doesn't
+exist, it'll return NULL
+==========================================================================
+*/
 char* get_file_content(char* file_path);
 
-char** string_split_index(char* str, int index); //finished.
+
+/*========================================================================
+===================== function: get_file_content_by_lines ================
+A function to get the content of a file splitted in lines
+@param: a string that represents the path of a file.
+@return: it returns the content of file as a bidimensional array. Each
+array position contains a char array. If the file doesn't exist this fuction
+will return NULL.
+==========================================================================
+*/
+char** get_file_content_by_lines(char* file_path); 
+
+
+/*========================================================================
+===================== function: number_of_lines ==========================
+A function to get the number of lines a string contains.
+@param: a string to be verified.
+@return: it returns the number of lines that a string contains.
+==========================================================================
+*/
+int number_of_lines(char* str);
+
+
+/*========================================================================
+===================== function: string_split_index =======================
+A function to split a string at a given index.
+@param: a string to be splitted.
+@param: an index to split a string.
+@param: a bidimensional array that represents the splitted string. Each
+position will contain a part of the string passed by parameter.
+==========================================================================
+*/
+char** string_split_index(char* str, int index);
+
+
+/*========================================================================
+===================== function: string_split_char ========================
+A function to split a string every time that a specific given char is found.
+@param: a string to be splitted.
+@param: a char to be found in a string and it's used to split it.
+@return: a bidimensional array that represents the splitted string. Each 
+position will contains a part of the string passed by parameter.
+==========================================================================
+*/
+char** string_split_char(char* str, char c);
+
+
+/*========================================================================
+===================== function: string_split_sequence ====================
+NOT IMPLEMENTED YET.
+==========================================================================
+*/
 char** string_split_sequence(char* str, char* sequence);
-char** string_split_char(char* str, char c); //finished.
-char** get_file_content_by_lines(char* file_path);
+
+
+/*========================================================================
+===================== function: print_bidimensional_char_array ===========
+A function to print a bidimensional char array content. 
+@param: a bidimensional char array (char**)
+@param: the number of columns that the bidimensional array contains.
+==========================================================================
+*/
 void print_bidimensional_char_array(char** bidimensional_array, int columns); // finished.
 #endif

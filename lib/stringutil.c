@@ -184,11 +184,13 @@ int string_contains_str(char* str, char* sequence) {
 	return 0;
 }
 
+
 int string_contains_char(char* str, char c) {
     char* character = (char*) calloc(1, sizeof(char));
 
     return string_contains_str(str, character);
 }
+
 
 char* string_cut_first_occurrence(char* str, char* sequence) {
     if(string_contains_str(str, sequence) < 0) return NULL;
@@ -282,7 +284,10 @@ char* get_file_content(char* file_path) {
     char c;
     int size = 1;
     char* file_content = (char*) calloc(size, sizeof(char));
-    
+    if(file == NULL) {
+        perror("ERROR: ");
+        return NULL;
+    }
     while((c = fgetc(file)) != EOF) {
         file_content[size-1] = c;
         size++;
@@ -324,6 +329,7 @@ int* string_char_occurrences(char* str, char c) {
     return occur;
 }
 
+
 int string_number_occurrences(char* str, char c) {
     int length = string_length(str);
     int i, count = 0;
@@ -334,6 +340,7 @@ int string_number_occurrences(char* str, char c) {
 
     return count;
 }
+
 
 char** string_split_char(char* str, char c) {
     int i, j = 0, begin = 0, end;
@@ -356,6 +363,7 @@ char** string_split_char(char* str, char c) {
     
     return split;
 }
+
 
 char** get_file_content_by_lines(char* file_path) {
     char* file_content = get_file_content(file_path);
@@ -387,4 +395,26 @@ void print_bidimensional_char_array(char** bidimensional_array, int columns) {
     for(i = 0; i < columns; i++) {
         printf("%s\n", bidimensional_array[i]);
     }
+}
+
+
+int number_of_lines(char* str) {
+    int length = string_length(str);
+    if(length == 0) return 0;
+    int i = 0, number = 0; 
+    while(i < length) {
+        if(str[i] == '\n') {
+            number++;
+        }
+        i++; 
+    }
+
+    return number;
+    
+}
+
+
+int number_of_file_lines(char* file_path) {
+    char* file_content = get_file_content(file_path);
+    return number_of_lines(file_content);
 }
