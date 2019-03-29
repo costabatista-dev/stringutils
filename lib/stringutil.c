@@ -356,3 +356,35 @@ char** string_split_char(char* str, char c) {
     
     return split;
 }
+
+char** get_file_content_by_lines(char* file_path) {
+    char* file_content = get_file_content(file_path);
+    int str_len = string_length(file_content), i = 0, begin = 0, end = 0;
+    int num_lines = string_number_occurrences(file_content, '\n') + 1;
+    char** lines = (char**) calloc(num_lines, sizeof(char*));
+    char* line;
+    int line_number = 0;
+
+    while(i < str_len && file_content[i] != EOF) {
+        if(file_content[i] == '\n') {
+            end = i;
+            line = substring_at_be(file_content, begin, end - 1);
+            begin = end + 1;
+            lines[line_number] = line;
+            line_number++;
+        }
+        
+        i++;
+    }
+    
+    return lines;
+}
+
+
+void print_bidimensional_char_array(char** bidimensional_array, int columns) {
+    int i;
+    
+    for(i = 0; i < columns; i++) {
+        printf("%s\n", bidimensional_array[i]);
+    }
+}
