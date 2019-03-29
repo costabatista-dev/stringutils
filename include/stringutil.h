@@ -1,4 +1,5 @@
 #include<stdlib.h>
+#include<stdio.h>
 #ifndef _STRINGUTIL1_
 #define _STRINGUTIL1_
 
@@ -12,7 +13,7 @@ A function to compare if two strings have the same content (are equal)
 @return: It returns 1 if the first string is higher than the second one
 @return: It returns -1 if the second string is lesser than the second one
 ==========================================================================*/
-int string_cmp(char *str1, char *str2);
+int string_cmp(char* str1, char* str2);
 
 
 /*========================================================================
@@ -25,7 +26,7 @@ A function to compare if two strings have the same content (are equal)
 @return: It returns 1 if the first string is higher than the second one
 @return: It returns -1 if the second string is lesser than the second one
 ==========================================================================*/
-int string_ncmp(char *str1, char *str2, int n);
+int string_ncmp(char* str1, char* str2, int n);
 
 
 /*========================================================================
@@ -34,7 +35,7 @@ A function to get the size of a string
 @param str: The inputted string to be measured
 @return: It returns the length of the inputted string (int)
 ==========================================================================*/
-int string_length(char *str);
+int string_length(char* str);
 
 
 /*========================================================================
@@ -43,7 +44,7 @@ A function to copy a string from a source to a destiny
 @param dest: The destiny string that will be receive content from another one
 @param src: The string source that will be copied
 ==========================================================================*/
-void string_copy(char *dest, char *src);
+void string_copy(char* dest, char* src);
 
 
 /*========================================================================
@@ -53,7 +54,7 @@ A function to copy a string from a source to a destiny
 @param src: The string source that will be copied
 @param n: The number of bytes to be copied
 ==========================================================================*/
-void string_ncopy(char *dest, char *src, int n);
+void string_ncopy(char* dest, char* src, int n);
 
 
 /*========================================================================
@@ -64,7 +65,7 @@ A function to concatenate two given strings
 @return: A string that's the result of concatenation of second string
 at the end of the first string
 ==========================================================================*/
-char* string_concat(char *str1, char *str2);
+char* string_concat(char* str1, char* str2);
 
 
 /*========================================================================
@@ -76,7 +77,7 @@ A function to concatenate two given strings
 @return: A string that's the result of concatenation of second string
 at the end of the first string
 ==========================================================================*/
-char* string_nconcat(char *dest, char *src, int n);
+char* string_nconcat(char* dest, char* src, int n);
 
 
 /*========================================================================
@@ -86,7 +87,7 @@ A function to cut a string from the begining until a given index (inclusive)
 @param index: a index to cut the inputted string
 @return: A string that's the result of cut n char from the begining.
 ==========================================================================*/
-char* string_init_cut(char *str, int index);
+char* string_init_cut(char* str, int index);
 
 
 /*========================================================================
@@ -96,7 +97,7 @@ A function to cut a string from a given index (inclusive) until it ends
 @param index: a index to cut the inputted string
 @return: A string that's the result of cut n char from a index to he end.
 ==========================================================================*/
-char* string_end_cut(char *src, int index);
+char* string_end_cut(char* src, int index);
 
 
 /*========================================================================
@@ -108,7 +109,7 @@ a string
 @param end: An int that indicates the end index of the substring (inclusive)
 @return: It returns a substring that correspond the given indexes
 ==========================================================================*/
-char* substring_at_be(char *str, int begin, int end);
+char* substring_at_be(char* str, int begin, int end);
 
 
 /*========================================================================
@@ -116,7 +117,7 @@ char* substring_at_be(char *str, int begin, int end);
 A function to remove whitespaces from beginind and end from a string
 @param: a source string
 ==========================================================================*/
-void string_trim(char *src);
+void string_trim(char* src);
 
 
 /*========================================================================
@@ -126,7 +127,7 @@ A function to append a char to a given string
 @param: a string to receive a char at the end of it
 @return: It returns a new string which has the char parameter as the last character
 ==========================================================================*/
-char* append_char_to_string(char character, char *string);
+char* append_char_to_string(char character, char* string);
 
 
 /*========================================================================
@@ -136,18 +137,28 @@ A function to verify whether a string begins with a prefix.
 @param: a string to be verified
 @return: it returns 1 if it's true else 0
 ==========================================================================*/
-int string_begins_with(char* prefix, char *str);
+int string_begins_with(char* prefix, char* str);
 
 
 /*========================================================================
-===================== function: string_contains ==========================
+===================== function: string_contains_str ======================
 A function to determine if a string contains a sequence of char.
 @param: a string to be verified.
 @param: a sequence to be searched in the given string
 @return: it returns 1 if the string be found, else returns 0
 ==========================================================================
 */
-int string_contains(char* str, char* sequence);
+int string_contains_str(char* str, char* sequence);
+
+/*========================================================================
+===================== function: string_contains_char =====================
+A function to determine if a string contains a char.
+@param: a string to be verified.
+@param: a char to be found in the given string
+@return: it returns 1 if the given char was found, else returns 0.
+==========================================================================
+*/
+int string_contains_char(char* str, char c);
 
 
 /*========================================================================
@@ -163,9 +174,10 @@ char* string_cut_first_occurrence(char* str, char* sequence);
 
 /*========================================================================
 ===================== function: string_first_char_occur ==================
+A function to get a pointer to the first appearance of a given sequence of char
 @param: a string to be verified.
 @param: a sequence to be searched in the given string
-@return: it returns a pointer to the first appearence of a given sequence.
+@return: it returns a pointer to the first appearance of a given sequence.
 ==========================================================================
 */
 char* string_first_sequence_occur(char* str, char* sequence);
@@ -173,10 +185,110 @@ char* string_first_sequence_occur(char* str, char* sequence);
 
 /*========================================================================
 ===================== function: string_last_sequence_occur ===============
+A function to get a pointer to the first appearance of a given sequence of char
 @param: a string to be verified.
 @param: a sequence to be searched in the given string
-@return: it returns a pointer to the last appearence of a given sequence.
+@return: it returns a pointer to the last appearance of a given sequence.
 ==========================================================================
 */
 char* string_last_sequence_occur(char* str, char* sequence);
+
+
+/*========================================================================
+===================== function: string_char_occurrences ==================
+A function to get an array that contains each position that a given char occurs
+in a given string.
+@param: a string to be verified.
+@param: a char to be found in the given string.
+@return: it returns an array that contains all positions that a char occurs in a
+string. Otherwise it returns NULL.
+==========================================================================
+*/
+int* string_char_occurrences(char* str, char c);
+
+
+/*========================================================================
+===================== function: string_number_occurrences ================
+A function to get the number of times a char occurs in a given string.
+@param: a string to be verified.
+@param: a char to be found in the given string.
+@return: the number of times a char occurs in the given string.
+==========================================================================
+*/
+int string_number_occurrences(char* str, char c); // finished.
+
+
+/*========================================================================
+===================== function: get_file_content =========================
+A function to get the content of a file.
+@param: a string that represents the path of a file.
+@return: it returns the content of file as a string. If the file doesn't
+exist, it'll return NULL
+==========================================================================
+*/
+char* get_file_content(char* file_path);
+
+
+/*========================================================================
+===================== function: get_file_content_by_lines ================
+A function to get the content of a file splitted in lines
+@param: a string that represents the path of a file.
+@return: it returns the content of file as a bidimensional array. Each
+array position contains a char array. If the file doesn't exist this fuction
+will return NULL.
+==========================================================================
+*/
+char** get_file_content_by_lines(char* file_path); 
+
+
+/*========================================================================
+===================== function: number_of_lines ==========================
+A function to get the number of lines a string contains.
+@param: a string to be verified.
+@return: it returns the number of lines that a string contains.
+==========================================================================
+*/
+int number_of_lines(char* str);
+
+
+/*========================================================================
+===================== function: string_split_index =======================
+A function to split a string at a given index.
+@param: a string to be splitted.
+@param: an index to split a string.
+@param: a bidimensional array that represents the splitted string. Each
+position will contain a part of the string passed by parameter.
+==========================================================================
+*/
+char** string_split_index(char* str, int index);
+
+
+/*========================================================================
+===================== function: string_split_char ========================
+A function to split a string every time that a specific given char is found.
+@param: a string to be splitted.
+@param: a char to be found in a string and it's used to split it.
+@return: a bidimensional array that represents the splitted string. Each 
+position will contains a part of the string passed by parameter.
+==========================================================================
+*/
+char** string_split_char(char* str, char c);
+
+
+/*========================================================================
+===================== function: string_split_sequence ====================
+NOT IMPLEMENTED YET.
+==========================================================================
+*/
+char** string_split_sequence(char* str, char* sequence);
+
+
+/*========================================================================
+===================== function: print_bidimensional_char_array ===========
+A function to print a bidimensional char array content. 
+@param: a bidimensional char array (char**)
+@param: the number of columns that the bidimensional array contains.
+==========================================================================
+*/
+void print_bidimensional_char_array(char** bidimensional_array, int columns); // finished.
 #endif
