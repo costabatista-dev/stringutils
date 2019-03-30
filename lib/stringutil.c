@@ -533,3 +533,19 @@ void remove_last_char(char* str[], char c) {
 
     *str = tmp;
 }
+
+
+void remove_all_char(char* str[], char c) {
+    int length = string_length(*str), i, j = 0;
+    char* tmp = (char*) calloc(length, sizeof(char));
+
+    for(i = 0; i < length; i++) {
+        if((*str)[i] != c) {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        
+    }
+
+    *str = tmp;
+}

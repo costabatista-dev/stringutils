@@ -306,4 +306,7 @@ void remove_first_char(char* str[], char c);
 
 
 void remove_last_char(char* str[], char c);
+
+
+void remove_all_char(char* str[], char c);
 #endif
