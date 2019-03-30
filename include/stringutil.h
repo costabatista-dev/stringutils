@@ -115,9 +115,9 @@ char* substring_at_be(char* str, int begin, int end);
 /*========================================================================
 ===================== function: string_trim ==============================
 A function to remove whitespaces from beginind and end from a string
-@param: a source string
+@param: a pointer to a source string passed by reference.
 ==========================================================================*/
-void string_trim(char* src);
+void string_trim(char* str[]);
 
 
 /*========================================================================
