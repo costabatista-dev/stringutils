@@ -486,5 +486,24 @@ void replace_last_char(char* str[], char c, char replacement) {
         i++;
     }
     *str = tmp;
+}
 
+
+void remove_first_char(char* str[], char c) {
+    int length = string_length(*str);
+    int i = 0, j = 0, first = 0;
+    char* tmp = (char*) calloc(length, sizeof(char));
+
+    while(i <  length) {
+        if((*str)[i] == c && first == 0) {
+            first++;
+        }
+        else {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        i++;
+    }
+
+    *str = tmp;
 }
