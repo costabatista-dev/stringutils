@@ -507,3 +507,29 @@ void remove_first_char(char* str[], char c) {
 
     *str = tmp;
 }
+
+
+void remove_last_char(char* str[], char c) {
+    int length = string_length(*str), i = 0, j = 0, oc = 0;
+    int occurs = string_number_occurrences(*str, c);
+    char* tmp = (char*) calloc(length, sizeof(char));
+    
+    while(i < length) {
+        if((*str)[i] == c && oc < occurs - 1) {
+            tmp[j] = (*str)[i];
+            j++;
+            oc++;
+        }
+        else if((*str)[i] == c && oc == occurs - 1) {
+            oc++;
+        }
+        else {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        i++;
+
+    }
+
+    *str = tmp;
+}
