@@ -290,5 +290,8 @@ A function to print a bidimensional char array content.
 @param: the number of columns that the bidimensional array contains.
 ==========================================================================
 */
-void print_bidimensional_char_array(char** bidimensional_array, int columns); // finished.
+void print_bidimensional_char_array(char** bidimensional_array, int columns);
+
+
+ void replace_first_char(char** str, char c, char replacement);
 #endif

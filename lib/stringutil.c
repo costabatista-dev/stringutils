@@ -418,3 +418,16 @@ int number_of_file_lines(char* file_path) {
     char* file_content = get_file_content(file_path);
     return number_of_lines(file_content);
 }
+
+
+
+void replace_first_char(char** str, char c, char replacement) {
+    printf("%d\n", string_contains_char(*str, c));
+    if(string_contains_char(*str, c) ==  1) {
+        int i = 0;
+        while((*str)[i] != c) i++;
+
+        (*str)[i] = replacement;
+        printf("%s\n", *str);
+    }
+}
