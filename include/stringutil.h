@@ -293,5 +293,9 @@ A function to print a bidimensional char array content.
 void print_bidimensional_char_array(char** bidimensional_array, int columns);
 
 
- void replace_first_char(char* str[], char c, char replacement);
+void replace_first_char(char* str[], char c, char replacement);
+
+
+void replace_all_char(char* str[], char c, char replacement);
+
 #endif

@@ -430,6 +430,26 @@ void replace_first_char(char* str[], char c, char replacement) {
     int length  = string_length(*str);
     char* tmp = (char*) calloc(length, sizeof(char));
     if(string_contains_char(*str, c) ==  1) {
+        int i = 0, first_occur = 0;
+        while(i < length) {
+            if((*str)[i] == c && first_occur == 0) {
+                tmp[i] = replacement;
+                first_occur++;
+            }
+            else {
+                tmp[i] = (*str)[i];
+            }
+            i++;
+        }
+        *str = tmp;
+    }
+}
+
+
+void replace_all_char(char* str[], char c, char replacement) {
+    int length  = string_length(*str);
+    char* tmp = (char*) calloc(length, sizeof(char));
+    if(string_contains_char(*str, c) ==  1) {
         int i = 0;
         while(i < length) {
             if((*str)[i] == c) {
