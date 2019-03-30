@@ -298,4 +298,6 @@ void replace_first_char(char* str[], char c, char replacement);
 
 void replace_all_char(char* str[], char c, char replacement);
 
+
+void replace_last_char(char* str[], char c, char replacement);
 #endif

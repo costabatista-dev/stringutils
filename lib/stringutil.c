@@ -463,3 +463,28 @@ void replace_all_char(char* str[], char c, char replacement) {
         *str = tmp;
     }
 }
+
+
+void replace_last_char(char* str[], char c, char replacement) {
+    int occur_number = string_number_occurrences(*str, c);
+    int i = 0, oc = 0;
+    int length = string_length(*str);
+    char* tmp = (char*) calloc(length, sizeof(char));
+
+    while(i < length) {
+        if((*str)[i] == c && oc == occur_number - 1) {
+            oc++;
+            tmp[i] = replacement;
+        }
+        else if((*str)[i] == c && oc < occur_number - 1) {
+            oc++;
+            tmp[i] = (*str)[i];
+        }
+        else {
+            tmp[i] = (*str)[i];
+        }
+        i++;
+    }
+    *str = tmp;
+
+}
