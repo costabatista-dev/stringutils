@@ -129,20 +129,24 @@ int string_ncmp(char *str1, char *str2, int n) {
 }
 
 
-void string_trim(char *src) {
-    int length = string_length(src);
-    int i = 0;
+void string_trim(char *str[]) {
+    int length = string_length(*str);
+
+    if(length == 0) return;
+
     
-    while(src[i] != '\0' && (src[i] == ' ' || src[i] == '\t' || src[i] == '\n')) {
-        i++;
+    while(((*str)[0] == ' ' || (*str)[0] == '\n' || (*str)[0] == '\t')) {
+        (*str)++;
     }
-    string_init_cut(src, (i-1));
-    length = string_length(src);
-    i = length -1;
-    while((src[i] == ' ' || src[i] == '\t' || src[i] == '\n')) {
+
+    length = string_length(*str);
+    int i = length - 1;
+
+    while((*str)[i] == '\t' || (*str)[i] == '\n' || (*str)[i] == ' ') {
         i--;
     }
-    src[i + 1] = '\0';
+    
+    *str = substring_at_be(*str, 0, i);
 }
 
 
