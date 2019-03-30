@@ -186,9 +186,14 @@ int string_contains_str(char* str, char* sequence) {
 
 
 int string_contains_char(char* str, char c) {
-    char* character = (char*) calloc(1, sizeof(char));
+    int i = 0, length = string_length(str);
 
-    return string_contains_str(str, character);
+    while(i < length) {
+        if(str[i] == c) return 1;
+        i++;
+    }
+    return 0;
+    
 }
 
 
