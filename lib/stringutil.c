@@ -553,3 +553,17 @@ void remove_all_char(char* str[], char c) {
 
     *str = tmp;
 }
+
+
+void replace_char_at(char* str[], char replacement, int index) {
+    int length = string_length(*str);
+    int i;
+    char* tmp = (char*) calloc(length, sizeof(char));
+    printf("%d\n", length);
+    for(i = 0; i < length; i++) {
+        if(i == index)  tmp[i] = replacement;
+        else tmp[i] = (*str)[i];
+    }
+
+    (*str) = tmp;
+}

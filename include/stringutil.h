@@ -309,4 +309,7 @@ void remove_last_char(char* str[], char c);
 
 
 void remove_all_char(char* str[], char c);
+
+
+void replace_char_at(char* str[], char replacement, int index);
 #endif
