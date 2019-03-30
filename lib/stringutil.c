@@ -426,13 +426,20 @@ int number_of_file_lines(char* file_path) {
 
 
 
-void replace_first_char(char** str, char c, char replacement) {
-    printf("%d\n", string_contains_char(*str, c));
+void replace_first_char(char* str[], char c, char replacement) {
+    int length  = string_length(*str);
+    char* tmp = (char*) calloc(length, sizeof(char));
     if(string_contains_char(*str, c) ==  1) {
         int i = 0;
-        while((*str)[i] != c) i++;
-
-        (*str)[i] = replacement;
-        printf("%s\n", *str);
+        while(i < length) {
+            if((*str)[i] == c) {
+                tmp[i] = replacement;
+            }
+            else {
+                tmp[i] = (*str)[i];
+            }
+            i++;
+        }
+        *str = tmp;
     }
 }
