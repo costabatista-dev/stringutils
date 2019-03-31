@@ -675,3 +675,37 @@ void replace_first_ocurrence_string(char* str[], char* s, char* replacement) {
 void remove_first_ocurrence_string(char* str[], char* s) {
     replace_first_ocurrence_string(str, s, "");
 }
+
+
+void remove_last_ocurrence_string(char* str[], char* s) {
+    int n_ocurr = string_number_of_str_ocurrences(*str, s);
+    int* occurrs = string_str_occurrences(*str, s);
+    int last_ocurr = occurrs[n_ocurr - 1], i, j = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+    char* p = *str;
+    
+    int s_len = string_length(s);
+
+    for(i = 0; i < last_ocurr; i++) {
+        tmp[i] = (*str)[i];
+        tmp = realloc(tmp, (i + 1) * sizeof(char));
+        j++;
+    }
+    
+    for(i = 0; i < s_len; i++) {
+        (*p++);
+    }
+
+    for(i = 0; i < last_ocurr; i++) {
+        (*p++);
+    }
+    
+    int p_len = string_length(p);
+    for(i = 0; i < p_len; i++) {
+        tmp[j] = p[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));   
+    }
+    tmp = realloc(tmp, j * sizeof(char));
+    *str = tmp;
+}

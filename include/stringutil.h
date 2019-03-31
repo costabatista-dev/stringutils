@@ -327,4 +327,7 @@ int string_number_of_str_ocurrences(char* str, char* s);
 
 
 void remove_first_ocurrence_string(char* str[], char* s);
+
+
+void remove_last_ocurrence_string(char* str[], char* s);
 #endif
