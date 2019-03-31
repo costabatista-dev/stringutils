@@ -320,6 +320,9 @@ void replace_at_range_char(char* str[], char replacement, int begin_index, int e
 void replace_first_ocurrence_string(char* str[], char* s, char* replacement);
 
 
+void replace_last_ocurrence_string(char* str[], char* s, char* replacement);
+
+
 int* string_str_occurrences(char* str, char* s);
 
 

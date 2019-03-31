@@ -709,3 +709,8 @@ void remove_last_ocurrence_string(char* str[], char* s) {
     tmp = realloc(tmp, j * sizeof(char));
     *str = tmp;
 }
+
+
+void replace_last_ocurrence_string(char* str[], char* s, char* replacement) {
+    
+}
