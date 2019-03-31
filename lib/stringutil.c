@@ -610,7 +610,25 @@ int string_number_of_str_ocurrences(char* str, char* s) {
 
 
 int* string_str_occurrences(char* str, char* s) {
-    
+    int str_len = string_length(str);
+    int s_len = string_length(s), i, j, pos = 0;
+    int* occurs = (int*) calloc(1, sizeof(int));
+
+    for(i = 0; i < str_len; i++) {
+        if(str[i] == s[0]) {
+            j = 0;
+            while(s[j] == str[i+j] && j < s_len && (i + j) < str_len) {
+                j++;
+            }
+            if(j == s_len) {
+                occurs[pos] = i;
+                pos++;
+                occurs = realloc(occurs, (pos+1) * sizeof(int));
+            } 
+            i = i + j;
+        }
+    }
+    return occurs;
 }
 
 
