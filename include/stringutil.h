@@ -166,7 +166,7 @@ int string_contains_char(char* str, char c);
 A function to cut the first occurrence of a sequence in a given string.
 @param: a string to be cutted.
 @param: a sequence to be removed from a given string.
-@return: it returns a string withou the first occurrence of the given sequence of char
+@return: it returns a string without the first occurrence of the given sequence of char
 ==========================================================================
 */
 char* string_cut_first_occurrence(char* str, char* sequence);
@@ -208,14 +208,14 @@ int* string_char_occurrences(char* str, char c);
 
 
 /*========================================================================
-===================== function: string_number_occurrences ================
+===================== function: string_number_of_char_occurrences ========
 A function to get the number of times a char occurs in a given string.
 @param: a string to be verified.
 @param: a char to be found in the given string.
 @return: the number of times a char occurs in the given string.
 ==========================================================================
 */
-int string_number_occurrences(char* str, char c); // finished.
+int string_number_of_char_occurrences(char* str, char c); // finished.
 
 
 /*========================================================================
@@ -315,4 +315,13 @@ void replace_char_at(char* str[], char replacement, int index);
 
 
 void replace_at_range_char(char* str[], char replacement, int begin_index, int end_index);
+
+
+void replace_first_string(char* str[], char* s, char* replacement);
+
+
+int* string_str_occurrences(char* str, char* s);
+
+
+int string_number_of_str_ocurrences(char* str, char* s);
 #endif

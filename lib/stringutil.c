@@ -339,7 +339,7 @@ int* string_char_occurrences(char* str, char c) {
 }
 
 
-int string_number_occurrences(char* str, char c) {
+int string_number_of_char_occurrences(char* str, char c) {
     int length = string_length(str);
     int i, count = 0;
 
@@ -353,7 +353,7 @@ int string_number_occurrences(char* str, char c) {
 
 char** string_split_char(char* str, char c) {
     int i, j = 0, begin = 0, end;
-    int size_split = string_number_occurrences(str,c) + 1;
+    int size_split = string_number_of_char_occurrences(str,c) + 1;
     char** split = (char**) calloc(size_split, sizeof(char*));
     char* sub;
     for(i = 0; i < size_split; i++) {
@@ -377,7 +377,7 @@ char** string_split_char(char* str, char c) {
 char** get_file_content_by_lines(char* file_path) {
     char* file_content = get_file_content(file_path);
     int str_len = string_length(file_content), i = 0, begin = 0, end = 0;
-    int num_lines = string_number_occurrences(file_content, '\n') + 1;
+    int num_lines = string_number_of_char_occurrences(file_content, '\n') + 1;
     char** lines = (char**) calloc(num_lines, sizeof(char*));
     char* line;
     int line_number = 0;
@@ -470,7 +470,7 @@ void replace_all_char(char* str[], char c, char replacement) {
 
 
 void replace_last_char(char* str[], char c, char replacement) {
-    int occur_number = string_number_occurrences(*str, c);
+    int occur_number =string_number_of_char_occurrences(*str, c);
     int i = 0, oc = 0;
     int length = string_length(*str);
     char* tmp = (char*) calloc(length, sizeof(char));
@@ -515,7 +515,7 @@ void remove_first_char(char* str[], char c) {
 
 void remove_last_char(char* str[], char c) {
     int length = string_length(*str), i = 0, j = 0, oc = 0;
-    int occurs = string_number_occurrences(*str, c);
+    int occurs = string_number_of_char_occurrences(*str, c);
     char* tmp = (char*) calloc(length, sizeof(char));
     
     while(i < length) {
@@ -586,4 +586,35 @@ void replace_at_range_char(char* str[], char replacement, int begin_index, int e
     }
 
     *str = tmp;
+}
+
+
+
+int string_number_of_str_ocurrences(char* str, char* s) {
+    int str_len = string_length(str);
+    int s_len = string_length(s), i, j, count = 0;
+
+    for(i = 0; i < str_len; i++) {
+        if(str[i] == s[0]) {
+            j = 0;
+            while(s[j] == str[i+j] && j < s_len && (i + j) < str_len) {
+                j++;
+            }
+            if(j == s_len) count++;
+            i = i + j;
+        }
+    }
+    return count;
+
+}
+
+
+int* string_str_occurrences(char* str, char* s) {
+    
+}
+
+
+void replace_first_string(char* str[], char* s, char* replacement) {
+    if(string_contains_str(*str, s) == 0) return;
+     //string_char_occurrence
 }
