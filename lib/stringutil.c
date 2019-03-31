@@ -634,5 +634,40 @@ int* string_str_occurrences(char* str, char* s) {
 
 void replace_first_string(char* str[], char* s, char* replacement) {
     if(string_contains_str(*str, s) == 0) return;
-     //string_char_occurrence
+    int occur = string_str_occurrences(*str, s)[0];
+    int replacement_length = string_length(replacement);
+    int s_length = string_length(s), i, str_length = string_length(*str), j = 0, k = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+    char* fp = (*str);
+    for(i = 0; i < str_length; i++) {
+        if(i == occur) break;
+        else {
+            tmp[j] = (*str)[i];
+            j++;
+            tmp = realloc(tmp, sizeof(char) * (j + 1));
+            (*fp++);
+        }
+    }
+    
+    for(i = 0; i <  s_length; i++) {
+        (*fp++);
+    }
+
+    for(i = 0; i < replacement_length; i++) {
+        tmp[j] = replacement[i];
+        j++;
+        tmp = realloc(tmp, sizeof(char) * (j + 1));
+
+    }
+
+    int fp_length = string_length(fp);
+
+    for(i = 0; i < fp_length; i++) {
+        tmp[j] = fp[i];
+        j++;
+        tmp = realloc(tmp, sizeof(char) * (j + 1));
+    }
+    tmp = realloc(tmp, sizeof(char) * j);
+    *str = tmp;
+    
 }
