@@ -312,4 +312,7 @@ void remove_all_char(char* str[], char c);
 
 
 void replace_char_at(char* str[], char replacement, int index);
+
+
+void replace_at_range_char(char* str[], char replacement, int begin_index, int end_index);
 #endif

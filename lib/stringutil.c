@@ -567,3 +567,23 @@ void replace_char_at(char* str[], char replacement, int index) {
 
     (*str) = tmp;
 }
+
+
+void replace_at_range_char(char* str[], char replacement, int begin_index, int end_index) {
+    int length = string_length(*str), i, j = 0;
+    int new_length = length - (end_index - begin_index + 1);
+    char* tmp = (char*) calloc(new_length, sizeof(char));
+
+    for(i = 0; i < length; i++) {
+        if(i < begin_index || i > end_index) {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        else if(i == begin_index) {
+            tmp[j] = replacement;
+            j++;
+        }
+    }
+
+    *str = tmp;
+}
