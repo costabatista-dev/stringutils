@@ -293,22 +293,22 @@ A function to print a bidimensional char array content.
 void print_bidimensional_char_array(char** bidimensional_array, int columns);
 
 
-void replace_first_char(char* str[], char c, char replacement);
+void replace_first_ocurrence_char(char* str[], char c, char replacement);
 
 
-void replace_all_char(char* str[], char c, char replacement);
+void replace_all_ocurrence_char(char* str[], char c, char replacement);
 
 
-void replace_last_char(char* str[], char c, char replacement);
+void replace_last_ocurrence_char(char* str[], char c, char replacement);
 
 
-void remove_first_char(char* str[], char c);
+void remove_first_ocurrence_char(char* str[], char c);
 
 
-void remove_last_char(char* str[], char c);
+void remove_last_ocurrence_char(char* str[], char c);
 
 
-void remove_all_char(char* str[], char c);
+void remove_all_ocurrence_char(char* str[], char c);
 
 
 void replace_char_at(char* str[], char replacement, int index);
@@ -317,11 +317,14 @@ void replace_char_at(char* str[], char replacement, int index);
 void replace_at_range_char(char* str[], char replacement, int begin_index, int end_index);
 
 
-void replace_first_string(char* str[], char* s, char* replacement);
+void replace_first_ocurrence_string(char* str[], char* s, char* replacement);
 
 
 int* string_str_occurrences(char* str, char* s);
 
 
 int string_number_of_str_ocurrences(char* str, char* s);
+
+
+void remove_first_ocurrence_string(char* str[], char* s);
 #endif

@@ -430,7 +430,7 @@ int number_of_file_lines(char* file_path) {
 
 
 
-void replace_first_char(char* str[], char c, char replacement) {
+void replace_first_ocurrence_char(char* str[], char c, char replacement) {
     int length  = string_length(*str);
     char* tmp = (char*) calloc(length, sizeof(char));
     if(string_contains_char(*str, c) ==  1) {
@@ -450,7 +450,7 @@ void replace_first_char(char* str[], char c, char replacement) {
 }
 
 
-void replace_all_char(char* str[], char c, char replacement) {
+void replace_all_ocurrence_char(char* str[], char c, char replacement) {
     int length  = string_length(*str);
     char* tmp = (char*) calloc(length, sizeof(char));
     if(string_contains_char(*str, c) ==  1) {
@@ -469,7 +469,7 @@ void replace_all_char(char* str[], char c, char replacement) {
 }
 
 
-void replace_last_char(char* str[], char c, char replacement) {
+void replace_last_ocurrence_char(char* str[], char c, char replacement) {
     int occur_number =string_number_of_char_occurrences(*str, c);
     int i = 0, oc = 0;
     int length = string_length(*str);
@@ -493,7 +493,7 @@ void replace_last_char(char* str[], char c, char replacement) {
 }
 
 
-void remove_first_char(char* str[], char c) {
+void remove_first_ocurrence_char(char* str[], char c) {
     int length = string_length(*str);
     int i = 0, j = 0, first = 0;
     char* tmp = (char*) calloc(length, sizeof(char));
@@ -513,7 +513,7 @@ void remove_first_char(char* str[], char c) {
 }
 
 
-void remove_last_char(char* str[], char c) {
+void remove_last_ocurrence_char(char* str[], char c) {
     int length = string_length(*str), i = 0, j = 0, oc = 0;
     int occurs = string_number_of_char_occurrences(*str, c);
     char* tmp = (char*) calloc(length, sizeof(char));
@@ -539,7 +539,7 @@ void remove_last_char(char* str[], char c) {
 }
 
 
-void remove_all_char(char* str[], char c) {
+void remove_all_ocurrence_char(char* str[], char c) {
     int length = string_length(*str), i, j = 0;
     char* tmp = (char*) calloc(length, sizeof(char));
 
@@ -632,7 +632,7 @@ int* string_str_occurrences(char* str, char* s) {
 }
 
 
-void replace_first_string(char* str[], char* s, char* replacement) {
+void replace_first_ocurrence_string(char* str[], char* s, char* replacement) {
     if(string_contains_str(*str, s) == 0) return;
     int occur = string_str_occurrences(*str, s)[0];
     int replacement_length = string_length(replacement);
@@ -668,6 +668,10 @@ void replace_first_string(char* str[], char* s, char* replacement) {
         tmp = realloc(tmp, sizeof(char) * (j + 1));
     }
     tmp = realloc(tmp, sizeof(char) * j);
-    *str = tmp;
-    
+    *str = tmp;   
+}
+
+
+void remove_first_ocurrence_string(char* str[], char* s) {
+    replace_first_ocurrence_string(str, s, "");
 }
