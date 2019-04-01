@@ -982,3 +982,18 @@ int last_index_of_until_char(char* str, char c, int until_index) {
     }
     return last;
 }
+
+
+int last_index_of_until_string(char* str, char* s, int until_index) {
+    int len = string_length(str), last = -1;
+    int* occurs = string_str_occurrences(str, s), i, noc = string_number_of_str_ocurrences(str, s);
+    if(until_index >= len || until_index < 0 || string_contains_str(str, s) == 0) return -1;
+
+    for(i = 0; i < noc; i++) {
+        if(occurs[i] <= until_index) {
+            last = occurs[i];
+        }
+    }
+
+    return last;
+}

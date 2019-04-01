@@ -390,5 +390,5 @@ int index_of_from_string(char* str, char* s, int from_index);
 int last_index_of_until_char(char* str, char c, int until_index);
 
 
-//int last_index_of_unti_index_string(char* str, char* s, int until_index);
+int last_index_of_until_string(char* str, char* s, int until_index);
 #endif
