@@ -1,4 +1,6 @@
 # StringUtils
+![](https://img.shields.io/badge/dev-Project%20under%20development-blue.svg)  ![](https://img.shields.io/badge/Language-C%20Programming%20Language-green.svg)
+
 **A customized String library written in C Programming Language.** 
 
 **Made from scratch, Made in the root _style_...**
