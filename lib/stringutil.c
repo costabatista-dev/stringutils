@@ -751,5 +751,15 @@ void replace_last_ocurrence_string(char* str[], char* s, char* replacement) {
 
     tmp = realloc(tmp, j * sizeof(char));
     *str = tmp; 
+}
+
+
+void replace_all_occurrence_string(char* str[], char* s, char* replacement) {
+    int occurs_number = string_number_of_str_ocurrences(*str, s), i;
+
+    for(i = 0; i < occurs_number; i++) {
+        replace_first_ocurrence_string(str, s, replacement);
+    }
+
 
 }
