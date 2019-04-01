@@ -339,4 +339,7 @@ void replace_all_occurrence_string(char* str[], char* s, char* replacement);
 
 
 void remove_all_ocurrence_string(char* str[], char* s);
+
+
+void replace_string_at(char* str[], char* replacement, int index);
 #endif

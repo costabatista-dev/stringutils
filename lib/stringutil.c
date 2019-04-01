@@ -766,3 +766,28 @@ void replace_all_occurrence_string(char* str[], char* s, char* replacement) {
 void remove_all_ocurrence_string(char* str[], char* s) {
     replace_all_occurrence_string(str, s, "");
 }
+
+
+void replace_string_at(char* str[], char* replacement, int index) {
+    int i, j = 0;
+    int r_len = string_length(replacement), str_len = string_length(*str);
+    char* tmp = (char*) calloc(str_len + r_len - 1, sizeof(char));
+
+    for(i = 0; i < index; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+    }
+
+    for(i = 0; i < r_len; i++) {
+        tmp[j] = replacement[i];
+        j++;
+    }
+
+    for(i = index + 1; i < str_len; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+    }
+
+    *str = tmp;
+
+}
