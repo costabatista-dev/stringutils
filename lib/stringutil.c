@@ -887,3 +887,14 @@ int ends_with_char(char* str, char c) {
 }
 
 
+int starts_with_string(char* str1, char* str2) {
+    int len1 = string_length(str1), len2 = string_length(str2);
+    if(len1 < len2) return 0;
+    int i;
+    
+    for(i = 0; i < len2; i++) {
+        if(str2[i] != str1[i]) return 0;
+    }
+
+    return 1;
+}

@@ -369,7 +369,7 @@ char char_at(char* str, int index);
 //int ends_with_string(char* str1, char* str2);
 
 
-//int starts_with_string(char* str1, char* str2);
+int starts_with_string(char* str1, char* str2);
 
 
 int ends_with_char(char* str, char c);
