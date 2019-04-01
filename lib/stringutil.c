@@ -898,3 +898,10 @@ int starts_with_string(char* str1, char* str2) {
 
     return 1;
 }
+
+
+int starts_with_char(char* str, char c) {
+    int len = string_length(str);
+    
+    return (len != 0 && str[0] == c) ? 1 : 0;
+}
