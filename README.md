@@ -1,7 +1,9 @@
 # StringUtils
-**A customized String library written in C Programming Language. Made from scratch, made in the root style**
-## Getting Started
+**A customized String library written in C Programming Language.** 
+
+**Made from scratch, Made in the root _style_**
 ![](smith.gif)
+## Getting Started
 ## Prerequisites
 ## Installing
 ## Running the tests
