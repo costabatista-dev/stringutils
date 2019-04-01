@@ -844,3 +844,26 @@ void to_lowercase_string(char* str[]) {
     *str = tmp;
 }
    
+
+void to_uppercase_string(char* str[]) {
+    int len = string_length(*str), i;
+    char* tmp = (char*) calloc(len, sizeof(char));
+    char c;
+
+    for(i = 0; i < len; i++) {
+        c = (*str)[i];
+        if(c >= 97 && c <= 122) {
+            c -= 32;
+        }
+        tmp[i] = c;
+    }
+    *str = tmp;
+
+}
+
+
+void to_uppercase_char(char *c) {
+     if(*c >= 97 && *c <= 122) {
+        *c -=  32;
+    }
+}

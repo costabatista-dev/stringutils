@@ -352,4 +352,10 @@ void to_lowercase_string(char* str[]);
 
 
 void to_lowercase_char(char *c);
+
+
+void to_uppercase_string(char* str[]);
+
+
+void to_uppercase_char(char *c);
 #endif
