@@ -924,6 +924,7 @@ int ends_with_string(char* str1, char* str2) {
     return 1;
 }
 
+
 int compare_to_ignore_case(char* str1, char* str2) {
     int len1 = string_length(str1), len2 = string_length(str2);
     char* aux1 = str1, *aux2 = str2;
@@ -931,5 +932,9 @@ int compare_to_ignore_case(char* str1, char* str2) {
     to_lowercase_string(&aux2);
 
     return (string_cmp(aux1,  aux2) == 0) ? 1 : 0;
+}
 
+
+int equals_string(char* str1, char* str2) {
+    return string_cmp(str1, str2) == 0 ? 1 : 0;
 }

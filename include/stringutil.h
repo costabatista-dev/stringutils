@@ -376,4 +376,7 @@ int starts_with_char(char* str, char c);
 
 
 int ends_with_char(char* str, char c);
+
+
+int equals_string(char* str1, char* str2);
 #endif
