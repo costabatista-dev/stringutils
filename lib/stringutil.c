@@ -771,6 +771,7 @@ void remove_all_ocurrence_string(char* str[], char* s) {
 void replace_string_at(char* str[], char* replacement, int index) {
     int i, j = 0;
     int r_len = string_length(replacement), str_len = string_length(*str);
+    if(index >= str_len) return;
     char* tmp = (char*) calloc(str_len + r_len - 1, sizeof(char));
 
     for(i = 0; i < index; i++) {
@@ -788,6 +789,35 @@ void replace_string_at(char* str[], char* replacement, int index) {
         j++;
     }
 
+    *str = tmp;
+}
+
+
+void replace_at_range_string(char* str[], char* s, int begin_index, int end_index) {
+    int str_len = string_length(*str), s_len = string_length(s);
+    if(begin_index < 0  || begin_index > (str_len - 1)
+        || end_index < 0 || end_index > (str_len - 1)) return;
+    int i, j = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+
+    for(i = 0; i < begin_index; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    for(i = 0; i < s_len; i++) {
+        tmp[j] = s[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    for(i =  end_index + 1; i < str_len; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+    tmp  = realloc(tmp, j * sizeof(char));
     *str = tmp;
 
 }

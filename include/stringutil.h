@@ -342,4 +342,7 @@ void remove_all_ocurrence_string(char* str[], char* s);
 
 
 void replace_string_at(char* str[], char* replacement, int index);
+
+
+void replace_at_range_string(char* str[], char* s, int begin_index, int end_index);
 #endif
