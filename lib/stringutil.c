@@ -878,3 +878,12 @@ void to_uppercase_char(char *c) {
         *c -=  32;
     }
 }
+
+
+int ends_with_char(char* str, char c) {
+    int len = string_length(str);
+
+    return (str[len - 1] == c) ? 1 : 0;
+}
+
+
