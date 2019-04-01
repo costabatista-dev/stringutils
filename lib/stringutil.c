@@ -858,7 +858,18 @@ void to_uppercase_string(char* str[]) {
         tmp[i] = c;
     }
     *str = tmp;
+}
 
+
+char char_at(char* str, int index) {
+    int len = string_length(str);
+    char c;
+    if(index >= len) {
+        perror("Error: ");
+        exit(1);
+    }
+    
+    return str[index];   
 }
 
 
