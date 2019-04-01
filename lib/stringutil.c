@@ -760,6 +760,9 @@ void replace_all_occurrence_string(char* str[], char* s, char* replacement) {
     for(i = 0; i < occurs_number; i++) {
         replace_first_ocurrence_string(str, s, replacement);
     }
+}
 
 
+void remove_all_ocurrence_string(char* str[], char* s) {
+    replace_all_occurrence_string(str, s, "");
 }
