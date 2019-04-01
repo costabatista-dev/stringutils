@@ -339,7 +339,7 @@ int* string_char_occurrences(char* str, char c) {
 }
 
 
-int string_number_occurrences(char* str, char c) {
+int string_number_of_char_occurrences(char* str, char c) {
     int length = string_length(str);
     int i, count = 0;
 
@@ -353,7 +353,7 @@ int string_number_occurrences(char* str, char c) {
 
 char** string_split_char(char* str, char c) {
     int i, j = 0, begin = 0, end;
-    int size_split = string_number_occurrences(str,c) + 1;
+    int size_split = string_number_of_char_occurrences(str,c) + 1;
     char** split = (char**) calloc(size_split, sizeof(char*));
     char* sub;
     for(i = 0; i < size_split; i++) {
@@ -377,7 +377,7 @@ char** string_split_char(char* str, char c) {
 char** get_file_content_by_lines(char* file_path) {
     char* file_content = get_file_content(file_path);
     int str_len = string_length(file_content), i = 0, begin = 0, end = 0;
-    int num_lines = string_number_occurrences(file_content, '\n') + 1;
+    int num_lines = string_number_of_char_occurrences(file_content, '\n') + 1;
     char** lines = (char**) calloc(num_lines, sizeof(char*));
     char* line;
     int line_number = 0;
@@ -426,4 +426,398 @@ int number_of_lines(char* str) {
 int number_of_file_lines(char* file_path) {
     char* file_content = get_file_content(file_path);
     return number_of_lines(file_content);
+}
+
+
+
+void replace_first_ocurrence_char(char* str[], char c, char replacement) {
+    int length  = string_length(*str);
+    char* tmp = (char*) calloc(length, sizeof(char));
+    if(string_contains_char(*str, c) ==  1) {
+        int i = 0, first_occur = 0;
+        while(i < length) {
+            if((*str)[i] == c && first_occur == 0) {
+                tmp[i] = replacement;
+                first_occur++;
+            }
+            else {
+                tmp[i] = (*str)[i];
+            }
+            i++;
+        }
+        *str = tmp;
+    }
+}
+
+
+void replace_all_ocurrence_char(char* str[], char c, char replacement) {
+    int length  = string_length(*str);
+    char* tmp = (char*) calloc(length, sizeof(char));
+    if(string_contains_char(*str, c) ==  1) {
+        int i = 0;
+        while(i < length) {
+            if((*str)[i] == c) {
+                tmp[i] = replacement;
+            }
+            else {
+                tmp[i] = (*str)[i];
+            }
+            i++;
+        }
+        *str = tmp;
+    }
+}
+
+
+void replace_last_ocurrence_char(char* str[], char c, char replacement) {
+    int occur_number =string_number_of_char_occurrences(*str, c);
+    int i = 0, oc = 0;
+    int length = string_length(*str);
+    char* tmp = (char*) calloc(length, sizeof(char));
+
+    while(i < length) {
+        if((*str)[i] == c && oc == occur_number - 1) {
+            oc++;
+            tmp[i] = replacement;
+        }
+        else if((*str)[i] == c && oc < occur_number - 1) {
+            oc++;
+            tmp[i] = (*str)[i];
+        }
+        else {
+            tmp[i] = (*str)[i];
+        }
+        i++;
+    }
+    *str = tmp;
+}
+
+
+void remove_first_ocurrence_char(char* str[], char c) {
+    int length = string_length(*str);
+    int i = 0, j = 0, first = 0;
+    char* tmp = (char*) calloc(length, sizeof(char));
+
+    while(i <  length) {
+        if((*str)[i] == c && first == 0) {
+            first++;
+        }
+        else {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        i++;
+    }
+
+    *str = tmp;
+}
+
+
+void remove_last_ocurrence_char(char* str[], char c) {
+    int length = string_length(*str), i = 0, j = 0, oc = 0;
+    int occurs = string_number_of_char_occurrences(*str, c);
+    char* tmp = (char*) calloc(length, sizeof(char));
+    
+    while(i < length) {
+        if((*str)[i] == c && oc < occurs - 1) {
+            tmp[j] = (*str)[i];
+            j++;
+            oc++;
+        }
+        else if((*str)[i] == c && oc == occurs - 1) {
+            oc++;
+        }
+        else {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        i++;
+
+    }
+
+    *str = tmp;
+}
+
+
+void remove_all_ocurrence_char(char* str[], char c) {
+    int length = string_length(*str), i, j = 0;
+    char* tmp = (char*) calloc(length, sizeof(char));
+
+    for(i = 0; i < length; i++) {
+        if((*str)[i] != c) {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        
+    }
+
+    *str = tmp;
+}
+
+
+void replace_char_at(char* str[], char replacement, int index) {
+    int length = string_length(*str);
+    int i;
+    char* tmp = (char*) calloc(length, sizeof(char));
+    printf("%d\n", length);
+    for(i = 0; i < length; i++) {
+        if(i == index)  tmp[i] = replacement;
+        else tmp[i] = (*str)[i];
+    }
+
+    (*str) = tmp;
+}
+
+
+void replace_at_range_char(char* str[], char replacement, int begin_index, int end_index) {
+    int length = string_length(*str), i, j = 0;
+    int new_length = length - (end_index - begin_index + 1);
+    char* tmp = (char*) calloc(new_length, sizeof(char));
+
+    for(i = 0; i < length; i++) {
+        if(i < begin_index || i > end_index) {
+            tmp[j] = (*str)[i];
+            j++;
+        }
+        else if(i == begin_index) {
+            tmp[j] = replacement;
+            j++;
+        }
+    }
+
+    *str = tmp;
+}
+
+
+
+int string_number_of_str_ocurrences(char* str, char* s) {
+    int str_len = string_length(str);
+    int s_len = string_length(s), i, j, count = 0;
+
+    for(i = 0; i < str_len; i++) {
+        if(str[i] == s[0]) {
+            j = 0;
+            while(s[j] == str[i+j] && j < s_len && (i + j) < str_len) {
+                j++;
+            }
+            if(j == s_len) count++;
+            i = i + j;
+        }
+    }
+    return count;
+
+}
+
+
+int* string_str_occurrences(char* str, char* s) {
+    int str_len = string_length(str);
+    int s_len = string_length(s), i, j, pos = 0;
+    int* occurs = (int*) calloc(1, sizeof(int));
+
+    for(i = 0; i < str_len; i++) {
+        if(str[i] == s[0]) {
+            j = 0;
+            while(s[j] == str[i+j] && j < s_len && (i + j) < str_len) {
+                j++;
+            }
+            if(j == s_len) {
+                occurs[pos] = i;
+                pos++;
+                occurs = realloc(occurs, (pos+1) * sizeof(int));
+            } 
+            i = i + j;
+        }
+    }
+    return occurs;
+}
+
+
+void replace_first_ocurrence_string(char* str[], char* s, char* replacement) {
+    if(string_contains_str(*str, s) == 0) return;
+    int occur = string_str_occurrences(*str, s)[0];
+    int replacement_length = string_length(replacement);
+    int s_length = string_length(s), i, str_length = string_length(*str), j = 0, k = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+    char* fp = (*str);
+    for(i = 0; i < str_length; i++) {
+        if(i == occur) break;
+        else {
+            tmp[j] = (*str)[i];
+            j++;
+            tmp = realloc(tmp, sizeof(char) * (j + 1));
+            (*fp++);
+        }
+    }
+    
+    for(i = 0; i <  s_length; i++) {
+        (*fp++);
+    }
+
+    for(i = 0; i < replacement_length; i++) {
+        tmp[j] = replacement[i];
+        j++;
+        tmp = realloc(tmp, sizeof(char) * (j + 1));
+
+    }
+
+    int fp_length = string_length(fp);
+
+    for(i = 0; i < fp_length; i++) {
+        tmp[j] = fp[i];
+        j++;
+        tmp = realloc(tmp, sizeof(char) * (j + 1));
+    }
+    tmp = realloc(tmp, sizeof(char) * j);
+    *str = tmp;   
+}
+
+
+void remove_first_ocurrence_string(char* str[], char* s) {
+    replace_first_ocurrence_string(str, s, "");
+}
+
+
+void remove_last_ocurrence_string(char* str[], char* s) {
+    if(string_contains_str(*str, s) == 0) return;
+    int n_ocurr = string_number_of_str_ocurrences(*str, s);
+    int* occurrs = string_str_occurrences(*str, s);
+    int last_ocurr = occurrs[n_ocurr - 1], i, j = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+    char* p = *str;
+    
+    int s_len = string_length(s);
+
+    for(i = 0; i < last_ocurr; i++) {
+        tmp[i] = (*str)[i];
+        tmp = realloc(tmp, (i + 1) * sizeof(char));
+        j++;
+    }
+    
+    for(i = 0; i < s_len; i++) {
+        (*p++);
+    }
+
+    for(i = 0; i < last_ocurr; i++) {
+        (*p++);
+    }
+    
+    int p_len = string_length(p);
+    for(i = 0; i < p_len; i++) {
+        tmp[j] = p[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));   
+    }
+    tmp = realloc(tmp, j * sizeof(char));
+    *str = tmp;
+}
+
+
+void replace_last_ocurrence_string(char* str[], char* s, char* replacement) {
+    if(string_contains_str(*str, s) == 0) return;
+    int number_of_occurrences = string_number_of_str_ocurrences(*str, s);
+    int last_occur = string_str_occurrences(*str, s)[number_of_occurrences - 1];
+    int i, j = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+    char* p = *str;
+    
+    for(i = 0; i < last_occur; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+        (*p++);
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    int r_len = string_length(replacement);
+
+    for(i = 0; i < r_len; i++) {
+        tmp[j] = replacement[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    int s_len = string_length(s);
+
+    for(i = 0; i < s_len; i++) {
+        (*p++);
+    }
+
+    int p_len = string_length(p);
+    
+    for(i = 0; i < p_len; i++) {
+        tmp[j] = p[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    tmp = realloc(tmp, j * sizeof(char));
+    *str = tmp; 
+}
+
+
+void replace_all_occurrence_string(char* str[], char* s, char* replacement) {
+    int occurs_number = string_number_of_str_ocurrences(*str, s), i;
+
+    for(i = 0; i < occurs_number; i++) {
+        replace_first_ocurrence_string(str, s, replacement);
+    }
+}
+
+
+void remove_all_ocurrence_string(char* str[], char* s) {
+    replace_all_occurrence_string(str, s, "");
+}
+
+
+void replace_string_at(char* str[], char* replacement, int index) {
+    int i, j = 0;
+    int r_len = string_length(replacement), str_len = string_length(*str);
+    if(index >= str_len) return;
+    char* tmp = (char*) calloc(str_len + r_len - 1, sizeof(char));
+
+    for(i = 0; i < index; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+    }
+
+    for(i = 0; i < r_len; i++) {
+        tmp[j] = replacement[i];
+        j++;
+    }
+
+    for(i = index + 1; i < str_len; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+    }
+
+    *str = tmp;
+}
+
+
+void replace_at_range_string(char* str[], char* s, int begin_index, int end_index) {
+    int str_len = string_length(*str), s_len = string_length(s);
+    if(begin_index < 0  || begin_index > (str_len - 1)
+        || end_index < 0 || end_index > (str_len - 1)) return;
+    int i, j = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+
+    for(i = 0; i < begin_index; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    for(i = 0; i < s_len; i++) {
+        tmp[j] = s[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    for(i =  end_index + 1; i < str_len; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+    tmp  = realloc(tmp, j * sizeof(char));
+    *str = tmp;
+
 }
