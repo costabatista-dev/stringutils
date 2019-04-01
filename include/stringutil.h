@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
+
 #ifndef _STRINGUTIL1_
 #define _STRINGUTIL1_
 
@@ -345,4 +346,49 @@ void replace_string_at(char* str[], char* replacement, int index);
 
 
 void replace_at_range_string(char* str[], char* s, int begin_index, int end_index);
+
+
+void to_lowercase_string(char* str[]);
+
+
+void to_lowercase_char(char *c);
+
+
+void to_uppercase_string(char* str[]);
+
+
+void to_uppercase_char(char *c);
+
+
+char char_at(char* str, int index);
+
+
+int compare_to_ignore_case(char* str1, char* str2);
+
+
+int ends_with_string(char* str1, char* str2);
+
+
+int starts_with_string(char* str1, char* str2);
+
+
+int starts_with_char(char* str, char c);
+
+
+int ends_with_char(char* str, char c);
+
+
+int equals_string(char* str1, char* str2);
+
+
+int index_of_from_char(char* str, char c, int from_index);
+
+
+int index_of_from_string(char* str, char* s, int from_index);
+
+
+int last_index_of_until_char(char* str, char c, int until_index);
+
+
+int last_index_of_until_string(char* str, char* s, int until_index);
 #endif

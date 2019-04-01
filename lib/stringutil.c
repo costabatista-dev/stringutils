@@ -3,6 +3,10 @@
 
 int string_cmp(char *str1, char *str2) {
     int i = 0;
+    int len1 = string_length(str1), len2 = string_length(str2);
+
+    if(len1 > len2) return 1;
+    else if(len1 < len2) return -1;
     while(str1[i] != '\0') {
         if (str1[i] != str2[i]) {
             return str1[i] > str2[i] ? 1 : -1;
@@ -117,7 +121,7 @@ void string_ncopy(char *dest, char *src, int n) {
 
 
 int string_ncmp(char *str1, char *str2, int n) {
-     int i = 0;
+    int i = 0;
     while(str1[i] != '\0' && i < n) {
         if (str1[i] != str2[i]) {
             return str1[i] > str2[i] ? 1 : -1;
@@ -427,7 +431,6 @@ int number_of_file_lines(char* file_path) {
     char* file_content = get_file_content(file_path);
     return number_of_lines(file_content);
 }
-
 
 
 void replace_first_ocurrence_char(char* str[], char c, char replacement) {
@@ -820,4 +823,177 @@ void replace_at_range_string(char* str[], char* s, int begin_index, int end_inde
     tmp  = realloc(tmp, j * sizeof(char));
     *str = tmp;
 
+}
+
+
+void to_lowercase_char(char *c) {
+    if(*c >= 65 && *c <= 90) {
+        *c = *c + 32;
+    }
+}
+
+
+void to_lowercase_string(char* str[]) {
+    int len = string_length(*str), i;
+    char* tmp = (char*) calloc(len, sizeof(char));
+    char c;
+
+    for(i = 0; i < len; i++) {
+        c = (*str)[i];
+        if(c >= 65 && c <= 90) {
+            c = c + 32;
+        }
+        tmp[i] = c;
+    }
+    *str = tmp;
+}
+   
+
+void to_uppercase_string(char* str[]) {
+    int len = string_length(*str), i;
+    char* tmp = (char*) calloc(len, sizeof(char));
+    char c;
+
+    for(i = 0; i < len; i++) {
+        c = (*str)[i];
+        if(c >= 97 && c <= 122) {
+            c -= 32;
+        }
+        tmp[i] = c;
+    }
+    *str = tmp;
+}
+
+
+char char_at(char* str, int index) {
+    int len = string_length(str);
+    char c;
+    if(index >= len) {
+        perror("Error: ");
+        exit(1);
+    }
+    
+    return str[index];   
+}
+
+
+void to_uppercase_char(char *c) {
+     if(*c >= 97 && *c <= 122) {
+        *c -=  32;
+    }
+}
+
+
+int ends_with_char(char* str, char c) {
+    int len = string_length(str);
+
+    return (str[len - 1] == c) ? 1 : 0;
+}
+
+
+int starts_with_string(char* str1, char* str2) {
+    int len1 = string_length(str1), len2 = string_length(str2);
+    if(len1 < len2) return 0;
+    int i;
+    
+    for(i = 0; i < len2; i++) {
+        if(str2[i] != str1[i]) return 0;
+    }
+
+    return 1;
+}
+
+
+int starts_with_char(char* str, char c) {
+    int len = string_length(str);
+    
+    return (len != 0 && str[0] == c) ? 1 : 0;
+}
+
+
+int ends_with_string(char* str1, char* str2) {
+    int len1 = string_length(str1), len2 = string_length(str2), i, j = 0;
+    
+    if(len2 > len1) return 0;
+
+    for(i = len1 - len2; i < len1; i++) {
+        if(str2[j] != str1[i]) return 0;
+        j++;
+    }
+
+    return 1;
+}
+
+
+int compare_to_ignore_case(char* str1, char* str2) {
+    int len1 = string_length(str1), len2 = string_length(str2);
+    char* aux1 = str1, *aux2 = str2;
+    to_lowercase_string(&aux1);
+    to_lowercase_string(&aux2);
+
+    return (string_cmp(aux1,  aux2) == 0) ? 1 : 0;
+}
+
+
+int equals_string(char* str1, char* str2) {
+    return string_cmp(str1, str2) == 0 ? 1 : 0;
+}
+
+
+int index_of_from_char(char* str, char c, int from_index) {
+    int len = string_length(str), i;
+
+    if(from_index >= len || from_index < 0 || string_contains_char(str, c) == 0) return -1;
+
+    for(i = from_index; i < len; i++) {
+        if(c == str[i]) return i;
+    }
+
+    return -1;
+}
+
+int index_of_from_string(char* str, char* s, int from_index) {
+    int len = string_length(str), i;
+
+    if(from_index >= len || from_index < 0 || string_contains_str(str, s) == 0) return -1;
+
+    int* occurs = string_str_occurrences(str, s);
+    int number_of_occurs = string_number_of_str_ocurrences(str, s);
+    
+    for(i = 0; i < number_of_occurs; i++) {
+        if(occurs[i] > from_index) return occurs[i];
+    }
+
+    return -1;
+}
+
+
+int last_index_of_until_char(char* str, char c, int until_index) {
+    int len = string_length(str), i;
+    char last;
+
+    if(until_index >= len || until_index < 0 || string_contains_char(str, c) == 0) return -1;
+
+
+    for(i = 0; i <= until_index; i++) {
+        if(c == str[i]) {
+            last = i;
+        }
+    }
+    return last;
+}
+
+
+int last_index_of_until_string(char* str, char* s, int until_index) {
+    int len = string_length(str), last = -1;
+    int* occurs = string_str_occurrences(str, s), i, noc = string_number_of_str_ocurrences(str, s);
+    if(until_index >= len || until_index < 0 || string_contains_str(str, s) == 0) return -1;
+
+    for(i = 0; i < noc; i++) {
+        if(occurs[i] <= until_index) {
+            last = occurs[i];
+        }
+    }
+
+    return last;
 }
