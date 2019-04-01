@@ -3,6 +3,10 @@
 
 int string_cmp(char *str1, char *str2) {
     int i = 0;
+    int len1 = string_length(str1), len2 = string_length(str2);
+
+    if(len1 > len2) return 1;
+    else if(len1 < len2) return -1;
     while(str1[i] != '\0') {
         if (str1[i] != str2[i]) {
             return str1[i] > str2[i] ? 1 : -1;
@@ -117,7 +121,7 @@ void string_ncopy(char *dest, char *src, int n) {
 
 
 int string_ncmp(char *str1, char *str2, int n) {
-     int i = 0;
+    int i = 0;
     while(str1[i] != '\0' && i < n) {
         if (str1[i] != str2[i]) {
             return str1[i] > str2[i] ? 1 : -1;
@@ -918,4 +922,14 @@ int ends_with_string(char* str1, char* str2) {
     }
 
     return 1;
+}
+
+int compare_to_ignore_case(char* str1, char* str2) {
+    int len1 = string_length(str1), len2 = string_length(str2);
+    char* aux1 = str1, *aux2 = str2;
+    to_lowercase_string(&aux1);
+    to_lowercase_string(&aux2);
+
+    return (string_cmp(aux1,  aux2) == 0) ? 1 : 0;
+
 }
