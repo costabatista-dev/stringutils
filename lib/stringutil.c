@@ -905,3 +905,17 @@ int starts_with_char(char* str, char c) {
     
     return (len != 0 && str[0] == c) ? 1 : 0;
 }
+
+
+int ends_with_string(char* str1, char* str2) {
+    int len1 = string_length(str1), len2 = string_length(str2), i, j = 0;
+    
+    if(len2 > len1) return 0;
+
+    for(i = len1 - len2; i < len1; i++) {
+        if(str2[j] != str1[i]) return 0;
+        j++;
+    }
+
+    return 1;
+}

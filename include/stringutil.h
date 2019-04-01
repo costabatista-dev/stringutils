@@ -366,7 +366,7 @@ char char_at(char* str, int index);
 //int compare_to_ignore_case(char* str1, char* str2);
 
 
-//int ends_with_string(char* str1, char* str2);
+int ends_with_string(char* str1, char* str2);
 
 
 int starts_with_string(char* str1, char* str2);
