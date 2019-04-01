@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
+
 #ifndef _STRINGUTIL1_
 #define _STRINGUTIL1_
 
@@ -345,4 +346,10 @@ void replace_string_at(char* str[], char* replacement, int index);
 
 
 void replace_at_range_string(char* str[], char* s, int begin_index, int end_index);
+
+
+void to_lowercase_string(char* str[]);
+
+
+void to_lowercase_char(char *c);
 #endif

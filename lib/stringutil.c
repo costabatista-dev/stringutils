@@ -429,7 +429,6 @@ int number_of_file_lines(char* file_path) {
 }
 
 
-
 void replace_first_ocurrence_char(char* str[], char c, char replacement) {
     int length  = string_length(*str);
     char* tmp = (char*) calloc(length, sizeof(char));
@@ -821,3 +820,27 @@ void replace_at_range_string(char* str[], char* s, int begin_index, int end_inde
     *str = tmp;
 
 }
+
+
+void to_lowercase_char(char *c) {
+    if(*c >= 65 && *c <= 90) {
+        *c = *c + 32;
+    }
+}
+
+
+void to_lowercase_string(char* str[]) {
+    int len = string_length(*str), i;
+    char* tmp = (char*) calloc(len, sizeof(char));
+    char c;
+
+    for(i = 0; i < len; i++) {
+        c = (*str)[i];
+        if(c >= 65 && c <= 90) {
+            c = c + 32;
+        }
+        tmp[i] = c;
+    }
+    *str = tmp;
+}
+   
