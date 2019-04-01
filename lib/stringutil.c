@@ -678,6 +678,7 @@ void remove_first_ocurrence_string(char* str[], char* s) {
 
 
 void remove_last_ocurrence_string(char* str[], char* s) {
+    if(string_contains_str(*str, s) == 0) return;
     int n_ocurr = string_number_of_str_ocurrences(*str, s);
     int* occurrs = string_str_occurrences(*str, s);
     int last_ocurr = occurrs[n_ocurr - 1], i, j = 0;
@@ -712,5 +713,43 @@ void remove_last_ocurrence_string(char* str[], char* s) {
 
 
 void replace_last_ocurrence_string(char* str[], char* s, char* replacement) {
+    if(string_contains_str(*str, s) == 0) return;
+    int number_of_occurrences = string_number_of_str_ocurrences(*str, s);
+    int last_occur = string_str_occurrences(*str, s)[number_of_occurrences - 1];
+    int i, j = 0;
+    char* tmp = (char*) calloc(1, sizeof(char));
+    char* p = *str;
     
+    for(i = 0; i < last_occur; i++) {
+        tmp[j] = (*str)[i];
+        j++;
+        (*p++);
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    int r_len = string_length(replacement);
+
+    for(i = 0; i < r_len; i++) {
+        tmp[j] = replacement[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    int s_len = string_length(s);
+
+    for(i = 0; i < s_len; i++) {
+        (*p++);
+    }
+
+    int p_len = string_length(p);
+    
+    for(i = 0; i < p_len; i++) {
+        tmp[j] = p[i];
+        j++;
+        tmp = realloc(tmp, (j + 1) * sizeof(char));
+    }
+
+    tmp = realloc(tmp, j * sizeof(char));
+    *str = tmp; 
+
 }
