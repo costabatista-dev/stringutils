@@ -938,3 +938,31 @@ int compare_to_ignore_case(char* str1, char* str2) {
 int equals_string(char* str1, char* str2) {
     return string_cmp(str1, str2) == 0 ? 1 : 0;
 }
+
+
+int index_of_from_char(char* str, char c, int from_index) {
+    int len = string_length(str), i;
+
+    if(from_index >= len) return -1;
+
+    for(i = from_index; i < len; i++) {
+        if(c == str[i]) return i;
+    }
+
+    return -1;
+}
+
+int index_of_from_string(char* str, char* s, int from_index) {
+    int len = string_length(str), i;
+
+    if(from_index >= len) return -1;
+
+    int* occurs = string_str_occurrences(str, s);
+    int number_of_occurs = string_number_of_str_ocurrences(str, s);
+    
+    for(i = 0; i < number_of_occurs; i++) {
+        if(occurs[i] > from_index) return occurs[i];
+    }
+
+    return -1;
+}
